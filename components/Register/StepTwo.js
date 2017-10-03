@@ -1,5 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import styled, { css } from 'styled-components'
+
+import { actions as registerActions } from '../../ducks/register'
 
 import { Input, Textarea } from '../Core/Input'
 
@@ -17,13 +20,17 @@ const Fieldset = styled.fieldset`
     opacity: 0.6;
   `}
 `
-
+@connect(
+  state => ({
+    registerData: state.register,
+  }),
+  { setField: registerActions.setField }
+)
 export default class StepTwo extends React.Component {
-  state ={
-    team: ''
-  }
-
   render() {
+    const { props } = this
+    const data = props.registerData
+
     return (
       <Container>
         <div className="row">
@@ -37,32 +44,32 @@ export default class StepTwo extends React.Component {
         <div className="row">
           <div className="col-3">
             <button
-              className={`btn btn-block btn-lg btn-outline-light ${this.state.team === 'developer' && 'active'}`}
-              onClick={e => this.setState({ team: 'developer' })}
+              className={`btn btn-block btn-lg btn-outline-light ${props.team === 'developer' && 'active'}`}
+              onClick={e => props.setField('team', 'developer')}
             >
               DEVELOPER
             </button>
           </div>
           <div className="col-3">
             <button
-              className="btn btn-block btn-lg btn-outline-light"
-              onClick={e => this.setState({ team: 'design' })}
+              className={`btn btn-block btn-lg btn-outline-light ${props.team === 'design' && 'active'}`}
+              onClick={e => props.setField('team', 'design')}
             >
               UX/UI DESIGN
             </button>
           </div>
           <div className="col-3">
             <button
-              className="btn btn-block btn-lg btn-outline-light"
-              onClick={e => this.setState({ team: 'infras' })}
+              className={`btn btn-block btn-lg btn-outline-light ${props.team === 'infrastructure' && 'active'}`}
+              onClick={e => props.setField('team', 'infrastructure')}
             >
               INFRASTRUCTURE
             </button>
           </div>
           <div className="col-3">
             <button
-              className="btn btn-block btn-lg btn-outline-light"
-              onClick={e => this.setState({ team: 'game' })}
+              className={`btn btn-block btn-lg btn-outline-light ${props.team === 'game' && 'active'}`}
+              onClick={e => props.setField('team', 'game')}
             >
               GAME
             </button>
@@ -70,7 +77,7 @@ export default class StepTwo extends React.Component {
         </div>
         <hr />
         <form>
-          <Fieldset disabled={this.state.team === ''}>
+          <Fieldset>
             <div className="col-12">
               <h2 className="text-center">Fill your Information</h2>
               <p className="text-center">
@@ -85,6 +92,8 @@ export default class StepTwo extends React.Component {
                   label={`Email Address`}
                   placeholder={`Enter email`}
                   footer={`We'll never share your email with anyone else.`}
+                  handleChange={props.setField}
+                  value={data.email}
                 />
               </div>
             </div>

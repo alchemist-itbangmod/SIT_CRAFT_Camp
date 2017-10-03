@@ -3,4 +3,10 @@
     "next/babel",
     "stage-0"
   ],
+  "plugins": [
+    "transform-decorators-legacy",
+    ["styled-components", {
+      "ssr": true
+    }]
+  ]
 }

@@ -1,8 +1,13 @@
 import React from 'react'
 import RegisterPage from '../components/Register/Main'
 
-const Index = props => (
-  <RegisterPage {...props} />
-)
+import withRedux from '../ducks/index'
 
-export default Index
+@withRedux()
+export default class Register extends React.Component {
+  render() {
+    return (
+      <RegisterPage {...this.props} />
+    )
+  }
+}
