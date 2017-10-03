@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { actions as registerActions } from '../../ducks/register'
-import { Input, Textarea } from '../Core/Input'
+import { Input, Textarea, Select } from '../Core/Input'
+import dropdown from './data-dropdown.json'
 
 @connect(
   state => ({
@@ -44,13 +45,13 @@ export default class Contact extends React.Component {
             />
           </div>
           <div className="col-4">
-            <Input
+            <Select
               type={'text'}
               field={`province`}
               label={`จังหวัด`}
-              placeholder={`---`}
               handleChange={props.setField}
               value={data.province}
+              dropdown={dropdown.province}
             />
           </div>
           <div className="col-4">

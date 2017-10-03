@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { actions as registerActions } from '../../ducks/register'
-import { Input, Textarea } from '../Core/Input'
+import { Textarea } from '../Core/Input'
 
 @connect(
   state => ({
@@ -28,13 +28,17 @@ export default class Interesting extends React.Component {
             field={`activities`}
             label={`กิจกรรมที่เคยเข้าร่วมหรือทำมาก่อน`}
             placeholder={`---`}
+            handleChange={props.setField}
+            value={data.activities}
           />
         </div>
         <div className="col-12">
           <Textarea
-            field={`activities`}
+            field={`talent`}
             label={`ทักษะความสามารถพิเศษด้านคอมพิวเตอร์`}
             placeholder={`---`}
+            handleChange={props.setField}
+            value={data.talent}
           />
         </div>
         <div className="col-4">
@@ -49,11 +53,25 @@ export default class Interesting extends React.Component {
           <div className="form-group">
             <label htmlFor="InputEmail">{`มีความต้องการจะพักในหอพักของมหาวิทยาลัย:`}</label>
             <div className="btn-group d-block" data-toggle="buttons">
-              <label className="btn btn-outline-light w-50 active">
-                <input type="radio" name="male" id="male" autoComplete="off" checked /> ต้องการ
+              <label className={`btn btn-outline-light w-50 ${data.needStayInUniversity === 'NEED' && 'active'}`}>
+                <input
+                  type="radio"
+                  name="gender"
+                  id="male"
+                  autoComplete="off"
+                  onChange={e => props.setField('needStayInUniversity', 'NEED')}
+                  checked={data.needStayInUniversity === 'NEED'}
+                /> ต้องการ
               </label>
-              <label className="btn btn-outline-light w-50">
-                <input type="radio" name="famale" id="female" autoComplete="off" /> ไม่ต้องการ
+              <label className={`btn btn-outline-light w-50 ${data.needStayInUniversity === 'NO' && 'active'}`}>
+                <input
+                  type="radio"
+                  name="gender"
+                  id="male"
+                  autoComplete="off"
+                  onChange={e => props.setField('needStayInUniversity', 'NO')}
+                  checked={data.needStayInUniversity === 'NO'}
+                /> ไม่ต้องการ
               </label>
             </div>
             <small className="form-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small>

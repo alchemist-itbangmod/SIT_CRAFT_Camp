@@ -31,7 +31,7 @@ let InitialState = {
   activities: '',
   talent: '',
   shirtSize: '',
-  needStayInUniversity: false,
+  needStayInUniversity: '',
   // Team Question
   questions: []
 }

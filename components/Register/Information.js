@@ -2,7 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { actions as registerActions } from '../../ducks/register'
-import { Input } from '../Core/Input'
+
+import dropdown from './data-dropdown.json'
+import { Input, Select } from '../Core/Input'
 
 @connect(
   state => ({
@@ -108,14 +110,15 @@ export default class Information extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-4">
-            <Input
+          <div className="col-3">
+            <Select
               type={'text'}
               field={`religion`}
               label={`ศาสนา`}
               placeholder={`---`}
               handleChange={props.setField}
               value={data.religion}
+              dropdown={dropdown.religion}
             />
           </div>
         </div>
@@ -131,13 +134,14 @@ export default class Information extends React.Component {
             />
           </div>
           <div className="col-3">
-            <Input
+            <Select
               type={'text'}
               field={`grade`}
               label={`ระดับชั้น`}
               placeholder={`---`}
               handleChange={props.setField}
               value={data.grade}
+              dropdown={dropdown.academicYear}
             />
           </div>
           <div className="col-3">

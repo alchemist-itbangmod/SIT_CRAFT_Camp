@@ -29,10 +29,24 @@ export const Textarea = ({ field, label, placeholder, footer, handleChange, valu
   </div>
 )
 
-export const Select = ({ field, label, placeholder, footer, handleChange, value }) => (
+export const Select = ({ field, label, footer, handleChange, value, dropdown }) => (
   <div className="form-group">
     <label htmlFor={`input-${field}`}>{ label }:</label>
-    <Textarea className="form-control" id={`input-${field}`} placeholder={placeholder} />
+    <select
+      id={`input-${field}`}
+      className="form-control"
+      value={value}
+      onChange={e => handleChange(field, e.target.value)}
+      onBlur={e => handleChange(field, e.target.value)}
+    >
+      <option value="" disabled>โปรดเลือก</option>
+      { dropdown.map(item => {
+        if (item.label && item.value) {
+          return <option key={item.value} value={item.value}>{item.label}</option>
+        }
+        return (<option key={item} value={item} >{item}</option>)
+      })}
+    </select>
     { footer && <small className="form-text text-muted">{footer}</small>}
   </div>
 )
