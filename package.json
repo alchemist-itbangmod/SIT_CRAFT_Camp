@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "next": "^3.2.2",
+    "polished": "^1.7.0",
     "react": "15",
-    "react-dom": "15"
+    "react-dom": "15",
+    "styled-components": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
