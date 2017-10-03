@@ -15,7 +15,8 @@ const RegisterSection = styled(Section)`
   background: radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
 
   hr {
-    border-top: 1px solid rgba(255,255,255,.3);
+    border-top: 1px dashed rgba(255,255,255,.3);
+    margin: 40px 0;
   }
 `
 
@@ -36,7 +37,7 @@ class Main extends React.Component {
       <RegisterSection>
         <div className="container">
           <Header className="text-center">SIT CRAFT Camp</Header>
-          <Stepper />
+          <Stepper section={2} />
           <Detail>
             {/* <StepOne /> */}
             <StepTwo />

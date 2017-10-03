@@ -1,53 +1,82 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-import Input from '../Core/Input'
+import { Input, Textarea } from '../Core/Input'
 
 const Container = styled.div`
-
   label, p {
     font-weight: 300;
     letter-spacing: .024681em;
   }
 `
 
+const Fieldset = styled.fieldset`
+  transition: all .5s;
+
+  ${props => props.disabled && css`
+    opacity: 0.6;
+  `}
+`
+
 export default class StepTwo extends React.Component {
+  state ={
+    team: ''
+  }
+
   render() {
     return (
       <Container>
         <div className="row">
           <div className="col-12">
-            <div className="header">
-              <h1 className="text-center">Fill your detail.</h1>
-              <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore sequi porro soluta, quod nisi? Deserunt deleniti illo rerum necessitatibus, porro facilis, molestias aliquam corporis magnam harum, cupiditate ratione est.</p>
-            </div>
+            <h2 className="text-center">Define your Team</h2>
+            <p className="text-center">
+              <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore sequi porro soluta.</small>
+            </p>
           </div>
         </div>
         <div className="row">
           <div className="col-3">
-            <button className="btn btn-block btn-lg btn-secondary">
+            <button
+              className={`btn btn-block btn-lg btn-outline-light ${this.state.team === 'developer' && 'active'}`}
+              onClick={e => this.setState({ team: 'developer' })}
+            >
               DEVELOPER
             </button>
           </div>
           <div className="col-3">
-            <button className="btn btn-block btn-lg btn-secondary">
+            <button
+              className="btn btn-block btn-lg btn-outline-light"
+              onClick={e => this.setState({ team: 'design' })}
+            >
               UX/UI DESIGN
             </button>
           </div>
           <div className="col-3">
-            <button className="btn btn-block btn-lg btn-secondary">
+            <button
+              className="btn btn-block btn-lg btn-outline-light"
+              onClick={e => this.setState({ team: 'infras' })}
+            >
               INFRASTRUCTURE
             </button>
           </div>
           <div className="col-3">
-            <button className="btn btn-block btn-lg btn-secondary">
+            <button
+              className="btn btn-block btn-lg btn-outline-light"
+              onClick={e => this.setState({ team: 'game' })}
+            >
               GAME
             </button>
           </div>
         </div>
         <hr />
         <form>
-          <fieldset>
+          <Fieldset disabled={this.state.team === ''}>
+            <div className="col-12">
+              <h2 className="text-center">Fill your Information</h2>
+              <p className="text-center">
+                <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore sequi porro soluta.</small>
+              </p>
+            </div>
             <div className="row">
               <div className="col-12">
                 <Input
@@ -100,10 +129,10 @@ export default class StepTwo extends React.Component {
                 <div className="form-group">
                   <label htmlFor="InputEmail">เพศ:</label>
                   <div className="btn-group d-block" data-toggle="buttons">
-                    <label className="btn btn-secondary w-50 active">
+                    <label className="btn btn-outline-light w-50 active">
                       <input type="radio" name="male" id="male" autoComplete="off" checked /> ชาย
                     </label>
-                    <label className="btn btn-secondary w-50">
+                    <label className="btn btn-outline-light w-50">
                       <input type="radio" name="famale" id="female" autoComplete="off" /> หญิง
                     </label>
                   </div>
@@ -137,12 +166,19 @@ export default class StepTwo extends React.Component {
               </div>
             </div>
             <hr />
+            <div className="col-12">
+              <h3 className="text-center">Contact</h3>
+              <p className="text-center">
+                <small>Lorem ipsum dolor sit amet, consectetur.</small>
+              </p>
+            </div>
             <div className="row">
               <div className="col-12">
-                <div className="form-group">
-                  <label htmlFor="InputEmail">ที่อยู่:</label>
-                  <textarea type="text" className="form-control" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email" />
-                </div>
+                <Textarea
+                  field={`address`}
+                  label={`ที่อยู่`}
+                  placeholder={`---`}
+                />
               </div>
               <div className="col-4">
                 <Input
@@ -177,7 +213,74 @@ export default class StepTwo extends React.Component {
                 />
               </div>
             </div>
-          </fieldset>
+            <hr />
+            <div className="row">
+              <div className="col-12">
+                <h3 className="text-center">Interesting.</h3>
+                <p className="text-center">
+                  <small>Lorem ipsum dolor sit amet, consectetur.</small>
+                </p>
+              </div>
+              <div className="col-12">
+                <Textarea
+                  field={`activities`}
+                  label={`กิจกรรมที่เคยเข้าร่วมหรือทำมาก่อน`}
+                  placeholder={`---`}
+                />
+              </div>
+              <div className="col-12">
+                <Textarea
+                  field={`activities`}
+                  label={`ทักษะความสามารถพิเศษด้านคอมพิวเตอร์`}
+                  placeholder={`---`}
+                />
+              </div>
+              <div className="col-4">
+                <div className="form-group">
+                  <label htmlFor="InputEmail">ไซต์เสื้อ:</label>
+                  <select className="form-control">
+                    <option>Default select</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-6">
+                <div className="form-group">
+                  <label htmlFor="InputEmail">{`มีความต้องการจะพักในหอพักของมหาวิทยาลัย:`}</label>
+                  <div className="btn-group d-block" data-toggle="buttons">
+                    <label className="btn btn-outline-light w-50 active">
+                      <input type="radio" name="male" id="male" autoComplete="off" checked /> ต้องการ
+                    </label>
+                    <label className="btn btn-outline-light w-50">
+                      <input type="radio" name="famale" id="female" autoComplete="off" /> ไม่ต้องการ
+                    </label>
+                  </div>
+                  <small className="form-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col-12">
+                <h3 className="text-center">Team Questions.</h3>
+                <p className="text-center">
+                  <small>Lorem ipsum dolor sit amet, consectetur.</small>
+                </p>
+              </div>
+              <div className="col-12">
+                <Textarea
+                  field={`activities`}
+                  label={`คำถามสาขา`}
+                  placeholder={`---`}
+                />
+              </div>
+            </div>
+            <div className="text-center">
+              <small className="form-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small>
+              <button className="btn btn-primary btn-lg w-50">
+                Submit
+              </button>
+            </div>
+          </Fieldset>
         </form>
       </Container>
     )
