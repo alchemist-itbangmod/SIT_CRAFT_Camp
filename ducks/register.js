@@ -16,11 +16,12 @@ let InitialState = {
   surname: '',
   nickname: '',
   citizenID: '',
-  gender: '',
   religion: '',
+  gender: '',
+  blood: '',
   school: '',
   grade: '',
-  GPAX: '', // ยังไม่ได้ใส่
+  GPAX: '',
   // Contact
   address: '',
   district: '',

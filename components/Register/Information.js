@@ -81,9 +81,20 @@ export default class Information extends React.Component {
               value={data.citizenID}
             />
           </div>
+          <div className="col-3">
+            <Select
+              type={'text'}
+              field={`religion`}
+              label={`ศาสนา`}
+              placeholder={`---`}
+              handleChange={props.setField}
+              value={data.religion}
+              dropdown={dropdown.religion}
+            />
+          </div>
         </div>
         <div className="row">
-          <div className="col-4">
+          <div className="col-3">
             <div className="form-group">
               <label htmlFor="InputEmail">เพศ:</label>
               <div className="btn-group d-block" data-toggle="buttons">
@@ -110,15 +121,15 @@ export default class Information extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-3">
+          <div className="col-2">
             <Select
               type={'text'}
-              field={`religion`}
-              label={`ศาสนา`}
+              field={`blood`}
+              label={`กรุ๊ปเลือด`}
               placeholder={`---`}
               handleChange={props.setField}
-              value={data.religion}
-              dropdown={dropdown.religion}
+              value={data.blood}
+              dropdown={dropdown.blood}
             />
           </div>
         </div>

@@ -18,6 +18,12 @@ const RegisterSection = styled(Section)`
     border-top: 1px dashed rgba(255,255,255,.3);
     margin: 40px 0;
   }
+
+  .btn-outline-light.active,
+  .btn-outline-light:active,
+  .show>.btn-outline-light.dropdown-toggle{
+    color: ${colors.blue};
+  }
 `
 
 const Header = styled.h1`
