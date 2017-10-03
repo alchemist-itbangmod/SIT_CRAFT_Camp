@@ -29,14 +29,18 @@ export default class Contact extends React.Component {
               field={`address`}
               label={`ที่อยู่`}
               placeholder={`---`}
+              handleChange={props.setField}
+              value={data.address}
             />
           </div>
           <div className="col-4">
             <Input
               type={'text'}
-              field={`distinct`}
+              field={`district`}
               label={`เขต/อำเภอ`}
               placeholder={`---`}
+              handleChange={props.setField}
+              value={data.district}
             />
           </div>
           <div className="col-4">
@@ -45,22 +49,28 @@ export default class Contact extends React.Component {
               field={`province`}
               label={`จังหวัด`}
               placeholder={`---`}
+              handleChange={props.setField}
+              value={data.province}
             />
           </div>
           <div className="col-4">
             <Input
               type={'text'}
               field={`zipcode`}
-              label={`จังหวัด`}
+              label={`รหัสไปรษณีย์`}
               placeholder={`---`}
+              handleChange={props.setField}
+              value={data.zipcode}
             />
           </div>
           <div className="col-6">
             <Input
               type={'text'}
-              field={`tel`}
+              field={`telno`}
               label={`เบอร์โทรศัพท์`}
               placeholder={`---`}
+              handleChange={props.setField}
+              value={data.telno}
             />
           </div>
         </div>
