@@ -29,7 +29,7 @@ export const Textarea = ({ field, label, placeholder, footer, handleChange, valu
   </div>
 )
 
-export const Select = ({ field, label, placeholder, footer }) => (
+export const Select = ({ field, label, placeholder, footer, handleChange, value }) => (
   <div className="form-group">
     <label htmlFor={`input-${field}`}>{ label }:</label>
     <Textarea className="form-control" id={`input-${field}`} placeholder={placeholder} />
