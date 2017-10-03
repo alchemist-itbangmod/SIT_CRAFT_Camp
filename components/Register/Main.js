@@ -13,6 +13,10 @@ import StepThree from './StepThree'
 const RegisterSection = styled(Section)`
   color: white;
   background: radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
+
+  hr {
+    border-top: 1px solid rgba(255,255,255,.3);
+  }
 `
 
 const Header = styled.h1`
@@ -33,7 +37,7 @@ class Main extends React.Component {
         <div className="container">
           <Header className="text-center">SIT CRAFT Camp</Header>
           <Stepper />
-          <Detail className="text-center">
+          <Detail>
             {/* <StepOne /> */}
             <StepTwo />
             {/* <StepThree /> */}

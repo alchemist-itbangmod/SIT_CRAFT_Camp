@@ -15,7 +15,7 @@ injectGlobal`
   }
 
   body {
-    letter-spacing: .02em;
+    letter-spacing: .024681em;
     -webkit-font-smoothing: antialiased;
     margin: 0 !important;
     padding: 0 !important;
