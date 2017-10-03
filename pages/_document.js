@@ -21,6 +21,9 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
           <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
           <link rel="stylesheet" href="/static/css/fonts.css" />
+
+          <link href="https://fonts.googleapis.com/css?family=Prompt:300,400" rel="stylesheet" />
+
           {styleTags}
         </Head>
         <body>
