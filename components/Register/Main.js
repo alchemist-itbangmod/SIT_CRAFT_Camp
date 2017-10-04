@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Router from 'next/router'
 import { connect } from 'react-redux'
 import { haveRegistration } from '../../utils/firebase'
@@ -23,12 +23,7 @@ import StepThree from './StepThree'
 const RegisterSection = styled(Section)`
   color: white;
   transition: all 1s;
-  
-  ${
-    props => props.team === '' && css`
-      background: radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
-    `
-  }
+  background: radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
 
   min-height: 100vh;
   position: relative;
@@ -46,7 +41,8 @@ const RegisterSection = styled(Section)`
   }
 
   .btn-outline-light:hover {
-    color: #aaa;
+    color: #777;
+    background-color: rgba(255,255,255,0.8);
   }
 `
 

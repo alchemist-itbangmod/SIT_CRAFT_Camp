@@ -67,7 +67,8 @@ export default class StepTwo extends React.Component {
   handleRegister = async e => {
     e.preventDefault()
     console.log(this.props.registerData)
-    saveRegistration(firebase, this.state.user, this.props.registerData)
+    await saveRegistration(firebase, this.state.user, this.props.registerData)
+    Router.push(`/register?currentStep=${3}`)
   }
 
   render() {

@@ -42,7 +42,7 @@ export default class Information extends React.Component {
             <Input
               type={'text'}
               field={`name`}
-              label={`Name`}
+              label={`ชื่อจริง`}
               handleChange={props.setField}
               value={data.name}
             />
@@ -51,7 +51,7 @@ export default class Information extends React.Component {
             <Input
               type={'text'}
               field={`surname`}
-              label={`Surname`}
+              label={`นามสกุล`}
               handleChange={props.setField}
               value={data.surname}
             />
@@ -62,7 +62,7 @@ export default class Information extends React.Component {
             <Input
               type={'text'}
               field={`nickname`}
-              label={`Nickname`}
+              label={`ชื่อเล่น`}
               handleChange={props.setField}
               value={data.nickname}
             />
@@ -71,7 +71,7 @@ export default class Information extends React.Component {
             <Input
               type={'number'}
               field={`citizenID`}
-              label={`Citizen ID`}
+              label={`รหัสประจำตัวประชาชน`}
               placeholder={`1234567890123`}
               handleChange={props.setField}
               value={data.citizenID}

@@ -28,13 +28,15 @@ let InitialState = {
   province: '',
   zipcode: '',
   telno: '',
+  facebook: '',
   // Interesting
   activities: '',
   talent: '',
   shirtSize: '',
   needStayInUniversity: '',
+  haveLaptop: '',
   // Team Question
-  questions: []
+  question: ''
 }
 
 // Reducer

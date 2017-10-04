@@ -25,6 +25,7 @@ export const Textarea = ({ field, label, placeholder, footer, handleChange, valu
       placeholder={placeholder}
       onChange={e => handleChange(field, e.target.value)}
       value={value}
+      rows={4}
       required
     />
     { footer && <small className="form-text text-muted">{footer}</small>}

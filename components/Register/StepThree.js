@@ -2,6 +2,9 @@ import React from 'react'
 import Router from 'next/router'
 import styled from 'styled-components'
 
+import colors from '../Core/colors'
+import { darken } from 'polished'
+
 import firebase from 'firebase'
 import clientCredentials from '../../credentials/client'
 import { haveRegistration } from '../../utils/firebase'
@@ -39,16 +42,15 @@ const Detail = styled.p`
   }
 `
 
-const Logout = styled.p`
-  a {
-    color: #ccc;
-  }
-
+const Team = styled.h2`
+  color: ${props => colors.team[props.clan]};
+  letter-spacing: 0.04em;
+  margin: 20px 0;
 `
 
 export default class StepThree extends React.Component {
   state = {
-    user: null
+    registration: null
   }
 
   async componentDidMount () {
@@ -61,7 +63,7 @@ export default class StepThree extends React.Component {
         if (registration === null) {
           Router.push(`/register?currentStep=${2}`)
         }
-        this.setState({ user })
+        this.setState({ registration })
       } else {
         Router.push(`/register?currentStep=${1}`)
       }
@@ -74,21 +76,40 @@ export default class StepThree extends React.Component {
   }
 
   render() {
+    if (this.state.registration === null) return <div />
+    const data = this.state.registration
+    let index = 4
+    switch (data.team) {
+      case 'developer':
+        index = 0
+        break
+      case 'design':
+        index = 1
+        break
+      case 'infrastructure':
+        index = 2
+        break
+      case 'game':
+        index = 3
+        break
+      default:
+        index = 4
+    }
+
     return (
       <div className="text-center">
         <h1>Registration is Done!</h1>
-        <Detail>การสมัครของน้องเสร็จสิ้นเรียบร้อยแล้วครับ น้องสามารถรอประกาศผลได้ที่ facebook/SIT.family ในวันที่ 11 ตุลาคม 2560 พี่ๆ หวังว่าจะได้พบน้องนะครับที่ SIT CRAFT Camp : ) </Detail>
+        <Team clan={index}>{this.state.registration.team} TEAM</Team>
+        <Detail>{`การสมัครของน้อง${this.state.registration.name} ${this.state.registration.surname} เสร็จสิ้นเรียบร้อยแล้วครับ น้องสามารถรอประกาศผลได้ที่ facebook/SIT.family ในวันที่ 11 ตุลาคม 2560 พี่ๆ หวังว่าจะได้พบน้องนะครับที่ SIT CRAFT Camp : )`}</Detail>
         <div className="share">
-          <p><b>บอกเพื่อนๆ ให้มาสมัคร SIT CRAFT Camp ด้วยกันสิ</b></p>
+          <p><b>หากน้องต้องการออกจากระบบ กดปุ่มด้านล่างได้เลยครับ</b></p>
           <Button
             className="btn btn-lg btn-secondary"
+            onClick={this.handleLogout}
           >
-            <i className="fa fa-facebook" />
-            <span>{`Share on facebook`}</span>
+            <i className="fa fa-sign-out" />
+            <span>{`ออกจากระบบ`}</span>
           </Button>
-          <Logout className="form-text">
-            หากน้องต้องการออกจากระบบกรุณากดปุ่ม <a href="#" onClick={this.handleLogout}>ออกจากระบบ</a> นี้
-          </Logout>
         </div>
       </div>
     )
