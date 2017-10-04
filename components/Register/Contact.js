@@ -56,7 +56,7 @@ export default class Contact extends React.Component {
           </div>
           <div className="col-4">
             <Input
-              type={'text'}
+              type={'number'}
               field={`zipcode`}
               label={`รหัสไปรษณีย์`}
               placeholder={`---`}

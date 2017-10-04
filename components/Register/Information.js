@@ -72,7 +72,7 @@ export default class Information extends React.Component {
           </div>
           <div className="col-6">
             <Input
-              type={'text'}
+              type={'number'}
               field={`citizenID`}
               label={`Citizen ID`}
               placeholder={`Enter your Citizen ID`}
@@ -105,6 +105,7 @@ export default class Information extends React.Component {
                     autoComplete="off"
                     onChange={e => props.setField('gender', 'M')}
                     checked={data.gender === 'M'}
+                    required
                   /> ชาย
                 </label>
                 <label className={`btn btn-outline-light w-50 ${data.gender === 'W' && 'active'}`}>
@@ -156,7 +157,7 @@ export default class Information extends React.Component {
           </div>
           <div className="col-3">
             <Input
-              type={'text'}
+              type={'number'}
               field={`GPAX`}
               label={`GPAX`}
               placeholder={`---`}

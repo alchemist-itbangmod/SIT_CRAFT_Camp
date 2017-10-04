@@ -60,18 +60,19 @@ export default class Interesting extends React.Component {
               <label className={`btn btn-outline-light w-50 ${data.needStayInUniversity === 'NEED' && 'active'}`}>
                 <input
                   type="radio"
-                  name="gender"
-                  id="male"
+                  name="dormitory"
+                  id="need"
                   autoComplete="off"
                   onChange={e => props.setField('needStayInUniversity', 'NEED')}
                   checked={data.needStayInUniversity === 'NEED'}
+                  required
                 /> ต้องการ
               </label>
               <label className={`btn btn-outline-light w-50 ${data.needStayInUniversity === 'NO' && 'active'}`}>
                 <input
                   type="radio"
-                  name="gender"
-                  id="male"
+                  name="dormitory"
+                  id="no-need"
                   autoComplete="off"
                   onChange={e => props.setField('needStayInUniversity', 'NO')}
                   checked={data.needStayInUniversity === 'NO'}
