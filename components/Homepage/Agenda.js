@@ -46,20 +46,13 @@ const Agenda = props => (
   <AgendaSection>
     <div className="container">
       <div className="row">
-        <div className="col-12">
-          <p className="text-center">
-            <small />
-          </p>
-        </div>
-      </div>
-      <div className="row">
         <div className="col-12 col-md-6">
-          <img src="/static/images/logo-sit-craft-camp.svg" className="img-fluid" alt="Logo" />
-        </div>
-        <div className="col-12 col-md-6">
-          <Header className="text-center">Agenda.</Header>
           <div className="row">
             <div className="col-md-11 ml-md-auto">
+              <Header className="text-center">Agenda.</Header>
+              <p>
+                <small />
+              </p>
               <ul>
                 <li>
                   <p>4 - 10 Oct Register</p>
@@ -79,6 +72,9 @@ const Agenda = props => (
               </ul>
             </div>
           </div>
+        </div>
+        <div className="col-12 col-md-6">
+          <img src="/static/images/logo-sit-craft-camp.svg" className="img-fluid" alt="Logo" />
         </div>
       </div>
     </div>
