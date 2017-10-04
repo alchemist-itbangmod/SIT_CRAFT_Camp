@@ -4,7 +4,7 @@
     {
       "name": "sit-craft-frontend",
       "exec_mode": "fork_mode",
-      "script": "./index.js",
+      "script": "./entry.js",
       "env": {
         "NODE_ENV": "staging"
       },
