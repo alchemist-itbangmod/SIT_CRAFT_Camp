@@ -21,7 +21,7 @@ export default class Interesting extends React.Component {
         <div className="col-12">
           <h3 className="text-center">Interesting.</h3>
           <p className="text-center">
-            <small>Lorem ipsum dolor sit amet, consectetur.</small>
+            <small>ข้อมูลความสนใจ ของน้องๆ ข้อมูลส่วนนี้มีผลต่อการคัดเลือกน้อง</small>
           </p>
         </div>
         <div className="col-12">
@@ -79,7 +79,7 @@ export default class Interesting extends React.Component {
                 /> ไม่ต้องการ
               </label>
             </div>
-            <small className="form-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small>
+            <small className="form-text text-muted">กรณีที่น้องๆ ต้องการเข้าพักในหอพักทางคณะจะดำเนินการติดต่อหอพักให้ แต่น้องๆ ต้องออกค่าใช้จ่ายเอง</small>
           </div>
         </div>
       </div>

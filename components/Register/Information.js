@@ -21,7 +21,7 @@ export default class Information extends React.Component {
         <div className="col-12">
           <h2 className="text-center">Fill your Information</h2>
           <p className="text-center">
-            <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore sequi porro soluta.</small>
+            <small>ข้อมูลส่วนตัวของน้องๆ โดยทางคณะจะไม่เปิดเผยข้อมูลส่วนตัวของน้องๆ ให้กับผู้อื่น</small>
           </p>
         </div>
         <div className="row">

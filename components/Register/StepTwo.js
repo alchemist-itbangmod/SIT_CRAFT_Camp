@@ -80,7 +80,7 @@ export default class StepTwo extends React.Component {
           <div className="col-12">
             <h2 className="text-center">Define your Team</h2>
             <p className="text-center">
-              <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore sequi porro soluta.</small>
+              <small>เลือกทีมที่ต้องการสมัคร โดยน้องๆ สามารถเลือกสมัครได้เพียงแค่ 1 ทีมเท่านั้น</small>
             </p>
           </div>
         </div>
