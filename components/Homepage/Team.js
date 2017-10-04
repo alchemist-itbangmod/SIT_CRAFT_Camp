@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Router from 'next/router'
 
 import colors from '../Core/colors'
-import { darken } from 'polished'
+import { darken, opacify } from 'polished'
 
 import { Section } from '../Core/Layout'
 import contents from './content.json'
@@ -31,7 +31,8 @@ const Header = styled.h2`
 const Clan = styled.div`
   width: 100%;
   margin-bottom: 20px;
-  border: 1px solid ${props => colors.team[props.clan]};
+  transition: all .4s;
+  ${'' /* border: 1px solid ${props => opacify(0.3, colors.team[props.clan])}; */}
 
   .card-body {
     padding: 1rem;

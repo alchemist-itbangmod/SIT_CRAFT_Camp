@@ -23,26 +23,7 @@ import StepThree from './StepThree'
 const RegisterSection = styled(Section)`
   color: white;
   transition: all 1s;
-  ${
-    props => props.team === 'developer' && css`
-      background: radial-gradient(circle, ${colors.team[0]} 0, ${darken(0.15, colors.team[0])} 120%);
-    `
-  }
-  ${
-    props => props.team === 'design' && css`
-      background: radial-gradient(circle, ${colors.team[1]} 0, ${darken(0.15, colors.team[1])} 120%);
-    `
-  }
-  ${
-    props => props.team === 'infrastructure' && css`
-      background: radial-gradient(circle, ${colors.team[2]} 0, ${darken(0.15, colors.team[2])} 120%);
-    `
-  }
-  ${
-    props => props.team === 'game' && css`
-      background: radial-gradient(circle, ${colors.team[3]} 0, ${darken(0.15, colors.team[3])} 120%);
-    `
-  }
+  
   ${
     props => props.team === '' && css`
       background: radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
