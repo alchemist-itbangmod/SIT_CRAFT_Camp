@@ -5,6 +5,7 @@ import { injectGlobal } from 'styled-components'
 import Hero from './Hero'
 import Whatis from './Whatis'
 import Team from './Team'
+import Agenda from './Agenda'
 import Slogan from './Slogan'
 import Contact from './Contact'
 
@@ -39,6 +40,7 @@ const IndexPage = props => (
     <Hero />
     <Whatis />
     <Team />
+    <Agenda />
     <Slogan />
     <Contact />
   </div>
