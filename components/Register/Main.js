@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Router from 'next/router'
 import { connect } from 'react-redux'
 import { haveRegistration } from '../../utils/firebase'
@@ -22,7 +22,33 @@ import StepThree from './StepThree'
 
 const RegisterSection = styled(Section)`
   color: white;
-  background: radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
+  transition: all 1s;
+  ${
+    props => props.team === 'developer' && css`
+      background: radial-gradient(circle, ${colors.team[0]} 0, ${darken(0.15, colors.team[0])} 120%);
+    `
+  }
+  ${
+    props => props.team === 'design' && css`
+      background: radial-gradient(circle, ${colors.team[1]} 0, ${darken(0.15, colors.team[1])} 120%);
+    `
+  }
+  ${
+    props => props.team === 'infrastructure' && css`
+      background: radial-gradient(circle, ${colors.team[2]} 0, ${darken(0.15, colors.team[2])} 120%);
+    `
+  }
+  ${
+    props => props.team === 'game' && css`
+      background: radial-gradient(circle, ${colors.team[3]} 0, ${darken(0.15, colors.team[3])} 120%);
+    `
+  }
+  ${
+    props => props.team === '' && css`
+      background: radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
+    `
+  }
+
   min-height: 100vh;
   position: relative;
 
@@ -33,8 +59,13 @@ const RegisterSection = styled(Section)`
 
   .btn-outline-light.active,
   .btn-outline-light:active,
+  .btn-outline-light:focus,
   .show>.btn-outline-light.dropdown-toggle{
     color: ${colors.blue};
+  }
+
+  .btn-outline-light:hover {
+    color: #aaa;
   }
 `
 
@@ -65,7 +96,8 @@ const Detail = styled.div`
 
 @connect(
   state => ({
-    loading: state.app.loading
+    loading: state.app.loading,
+    team: state.register.team
   }),
   { ...appActions }
 )
@@ -96,7 +128,7 @@ class Main extends React.Component {
     const currentStep = +this.props.url.query.currentStep
 
     return (
-      <RegisterSection>
+      <RegisterSection team={this.props.team}>
         <Loading active={this.props.loading} />
         <div className="container">
           <Header className="text-center">SIT CRAFT Camp</Header>

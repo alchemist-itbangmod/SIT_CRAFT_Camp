@@ -10,6 +10,11 @@ import contents from './content.json'
 
 const TeamSection = styled(Section)`
   background: #fafafa;
+
+  .promo {
+    font-size: 24px;
+    padding-top: 16px;
+  }
 `
 
 const Header = styled.h2`
@@ -26,7 +31,6 @@ const Header = styled.h2`
 const Clan = styled.div`
   width: 100%;
   margin-bottom: 20px;
-  min-height: 250px;
   border: 1px solid ${props => colors.team[props.clan]};
 
   .card-body {
@@ -34,7 +38,7 @@ const Clan = styled.div`
   }
 
   h3 {
-    font-size: 48px;
+    font-size: 22px;
     color: ${props => darken(0.15, colors.team[props.clan])};
   }
 
@@ -42,11 +46,38 @@ const Clan = styled.div`
     font-size: 20px;
     color: #333;
     margin: 0;
+    min-height: 130px;
 
     &.requirement {
       font-size: 18px;
+      min-height: 0;
       color: ${props => darken(0.15, colors.team[props.clan])};
     }
+  }
+`
+
+const Button = styled.button`
+  color: #333;
+  background-color: white;
+  border-color: #ccc;
+  letter-spacing: .3px;
+  cursor: pointer;
+  padding: 10px 38px;
+
+  span {
+    display: inline-block;
+    font-size: 32px;
+    padding-top: 7px;
+  }
+`
+
+const LogoTeam = styled.div`
+  padding: 20px;
+  min-height: 200px;
+
+  img {
+    margin: 0 auto;
+    display: block;
   }
 `
 
@@ -64,10 +95,13 @@ const Team = props => (
       <div className="row">
         {
           contents.clans.map((clan, key) => (
-            <div key={clan.name} className="col-12 col-md-6">
+            <div key={clan.name} className="col-12 col-md-3">
               <Clan className="card text-center" clan={key}>
                 <div className="card-body">
                   <h3 className="card-title">{ clan.name }</h3>
+                  <LogoTeam>
+                    <img src={`/static/images/team/${key}.png`} className="img-fluid" alt="" />
+                  </LogoTeam>
                   <p className="card-text">{ clan.description }</p>
                   <p className="mt-2 requirement">``{ clan.requirement }``</p>
                 </div>
@@ -78,15 +112,15 @@ const Team = props => (
       </div>
       <div className="row">
         <div className="col-12 text-center">
-          <p className="text-center">
-            <small>ถ้าพร้อมที่จะร่วมเป็นส่วนหนึ่งกับเรา สมัครเลย!</small>
+          <p className="promo text-center">
+            ถ้าพร้อมที่จะร่วมเป็นส่วนหนึ่งกับเรา สมัครเลย!
           </p>
-          <button
+          <Button
             className="btn btn-lg btn-secondary"
             onClick={() => Router.push('/register')}
           >
-            สมัครเข้าร่วม
-          </button>
+            <span>สมัครเข้าร่วม</span>
+          </Button>
         </div>
       </div>
     </div>

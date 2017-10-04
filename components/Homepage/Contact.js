@@ -12,6 +12,11 @@ const ContactSection = styled.div`
   hr {
     border-top: 1px solid rgba(255,255,255,.1);
   }
+
+  a  {
+    color: white;
+    font-weight: bold;
+  }
 `
 
 const Manu = styled.ul`
@@ -25,12 +30,6 @@ const Manu = styled.ul`
       padding-left: 8px;
       padding-right: 8px;
     }
-
-    a  {
-      color: white;
-      text-decoration: underline;
-      text-decoration-style: dotted;
-    }
   }
 `
 const Contact = props => (
@@ -42,7 +41,11 @@ const Contact = props => (
           <hr />
           <div className="row">
             <div className="col-3">
-              {`© 2017 Alchemist`}
+              <i className="fa fa-code"></i>
+              {` with `}
+              <i className="fa fa-heart"></i>
+              {` by `}
+              <a href="https://alchemist.itbangmod.in.th">Alchemist</a>
             </div>
             <div className="col-9 text-right">
               <Manu>

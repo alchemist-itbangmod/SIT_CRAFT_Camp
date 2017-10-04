@@ -21,7 +21,7 @@ export default class Information extends React.Component {
         <div className="col-12">
           <h2 className="text-center">Fill your Information</h2>
           <p className="text-center">
-            <small>ข้อมูลส่วนตัวของน้องๆ โดยทางคณะจะไม่เปิดเผยข้อมูลส่วนตัวของน้องๆ ให้กับผู้อื่น</small>
+            ข้อมูลส่วนตัวของน้องๆ โดยทางคณะจะไม่เปิดเผยข้อมูลส่วนตัวของน้องๆ ให้กับผู้อื่น
           </p>
         </div>
         <div className="row">
@@ -31,7 +31,7 @@ export default class Information extends React.Component {
               field={`email`}
               label={`Email Address`}
               placeholder={`Enter email`}
-              footer={`We'll never share your email with anyone else.`}
+              footer={`** ใช้อีเมลที่ผูกกับ GitHub Account เพื่อทำกิจกรรมภายในค่าย`}
               handleChange={props.setField}
               value={data.email}
             />
@@ -43,7 +43,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`name`}
               label={`Name`}
-              placeholder={`Enter your name`}
               handleChange={props.setField}
               value={data.name}
             />
@@ -53,7 +52,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`surname`}
               label={`Surname`}
-              placeholder={`Enter your surname`}
               handleChange={props.setField}
               value={data.surname}
             />
@@ -65,7 +63,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`nickname`}
               label={`Nickname`}
-              placeholder={`Enter your nickname`}
               handleChange={props.setField}
               value={data.nickname}
             />
@@ -75,7 +72,7 @@ export default class Information extends React.Component {
               type={'number'}
               field={`citizenID`}
               label={`Citizen ID`}
-              placeholder={`Enter your Citizen ID`}
+              placeholder={`1234567890123`}
               handleChange={props.setField}
               value={data.citizenID}
             />
@@ -85,7 +82,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`religion`}
               label={`ศาสนา`}
-              placeholder={`---`}
               handleChange={props.setField}
               value={data.religion}
               dropdown={dropdown.religion}
@@ -139,7 +135,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`school`}
               label={`โรงเรียน/สถานศึกษา`}
-              placeholder={`---`}
               handleChange={props.setField}
               value={data.school}
             />
@@ -149,7 +144,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`grade`}
               label={`ระดับชั้น`}
-              placeholder={`---`}
               handleChange={props.setField}
               value={data.grade}
               dropdown={dropdown.academicYear}
@@ -160,7 +154,7 @@ export default class Information extends React.Component {
               type={'number'}
               field={`GPAX`}
               label={`GPAX`}
-              placeholder={`---`}
+              placeholder={`2.92`}
               handleChange={props.setField}
               value={data.GPAX}
             />
