@@ -28,6 +28,11 @@ const Fieldset = styled.fieldset`
     opacity: 0.6;
   `}
 `
+
+const Button = styled.button`
+  cursor: pointer;
+`
+
 @connect(
   state => ({
     registerData: state.register
@@ -66,7 +71,6 @@ export default class StepTwo extends React.Component {
 
   handleRegister = async e => {
     e.preventDefault()
-    console.log(this.props.registerData)
     await saveRegistration(firebase, this.state.user, this.props.registerData)
     Router.push(`/register?currentStep=${3}`)
   }
@@ -81,42 +85,42 @@ export default class StepTwo extends React.Component {
           <div className="col-12">
             <h2 className="text-center">Define your Team</h2>
             <p className="text-center">
-              <small>เลือกทีมที่ต้องการสมัคร โดยน้องๆ สามารถเลือกสมัครได้เพียงแค่ 1 ทีมเท่านั้น</small>
+              เลือกทีมที่ต้องการสมัคร โดยน้องๆ สามารถเลือกสมัครได้<u>เพียงแค่ 1 ทีม</u>เท่านั้น
             </p>
           </div>
         </div>
         <div className="row">
-          <div className="col-3">
-            <button
+          <div className="col-md-3 mb-2">
+            <Button
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'developer' && 'active'}`}
               onClick={e => props.setField('team', 'developer')}
             >
               {`DEVELOPER`}
-            </button>
+            </Button>
           </div>
-          <div className="col-3">
-            <button
+          <div className="col-md-3 mb-2">
+            <Button
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'design' && 'active'}`}
               onClick={e => props.setField('team', 'design')}
             >
               {`UX/UI DESIGN`}
-            </button>
+            </Button>
           </div>
-          <div className="col-3">
-            <button
+          <div className="col-md-3 mb-2">
+            <Button
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'infrastructure' && 'active'}`}
               onClick={e => props.setField('team', 'infrastructure')}
             >
               {`INFRASTRUCTURE`}
-            </button>
+            </Button>
           </div>
-          <div className="col-3">
-            <button
+          <div className="col-md-3 mb-2">
+            <Button
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'game' && 'active'}`}
               onClick={e => props.setField('team', 'game')}
             >
               {`GAME`}
-            </button>
+            </Button>
           </div>
         </div>
         <hr />
@@ -130,11 +134,16 @@ export default class StepTwo extends React.Component {
             <hr />
             <Questions />
             <div className="text-center">
-              <button className="btn btn-primary btn-lg w-50">
-                Submit
-              </button>
-              <p className="form-text text-muted">
-                หากน้องต้องการออกจากระบบกรุณากดปุ่ม <a href="#" onClick={this.handleLogout}>ออกจากระบบ</a> นี้
+              <p className="form-text">
+                <small>ข้าพเจ้ายอมรับว่าข้อมูลทั้งหมดที่กรอกเป็นความจริงทุกประการ</small>
+              </p>
+              <Button className="btn btn-primary btn-lg w-50">
+                ลงทะเบียน
+              </Button>
+            </div>
+            <div className="text-center">
+              <p className="form-text mt-4">
+                หากน้องต้องการที่จะ <a href="#" onClick={this.handleLogout}>ออกจากระบบ</a> กดปุ่มนี้
               </p>
             </div>
           </Fieldset>

@@ -1,9 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 
 import { actions as registerActions } from '../../ducks/register'
 import { Textarea } from '../Core/Input'
 import questions from './data-questions.json'
+
+const QuestionWrapper = styled.div`
+  label {
+    font-size: 20px;
+  }
+`
 
 @connect(
   state => ({
@@ -33,7 +40,7 @@ export default class Interesting extends React.Component {
         index = 4
     }
     return (
-      <div className="row">
+      <QuestionWrapper className="row">
         <div className="col-12">
           <h3 className="text-center">Team Questions.</h3>
           <p className="text-center">
@@ -48,7 +55,7 @@ export default class Interesting extends React.Component {
             value={data.question}
           />
         </div>
-      </div>
+      </QuestionWrapper>
     )
   }
 }

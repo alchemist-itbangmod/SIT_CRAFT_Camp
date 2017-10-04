@@ -33,7 +33,7 @@ export default class Contact extends React.Component {
               value={data.address}
             />
           </div>
-          <div className="col-4">
+          <div className="col-6 col-md-4">
             <Input
               type={'text'}
               field={`district`}
@@ -42,7 +42,7 @@ export default class Contact extends React.Component {
               value={data.district}
             />
           </div>
-          <div className="col-4">
+          <div className="col-6 col-md-4">
             <Select
               type={'text'}
               field={`province`}
@@ -52,7 +52,7 @@ export default class Contact extends React.Component {
               dropdown={dropdown.province}
             />
           </div>
-          <div className="col-4">
+          <div className="col-6 col-md-4">
             <Input
               type={'number'}
               field={`zipcode`}
@@ -62,7 +62,7 @@ export default class Contact extends React.Component {
               value={data.zipcode}
             />
           </div>
-          <div className="col-5">
+          <div className="col-12 col-md-5">
             <Input
               type={'text'}
               field={`facebook`}
@@ -72,7 +72,7 @@ export default class Contact extends React.Component {
               value={data.facebook}
             />
           </div>
-          <div className="col-5">
+          <div className="col-12 col-md-5">
             <Input
               type={'text'}
               field={`telno`}

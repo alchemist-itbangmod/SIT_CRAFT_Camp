@@ -16,8 +16,20 @@ const Detail = styled.p`
   &.small {
     font-size: 16px;
   }
+
+  @media(max-width: 768px) {
+    font-size: 18px;
+    width: 100%;
+  }
 `
 
+const Header = styled.h1`
+  font-size: 3.2em;
+
+  @media(max-width: 768px) {
+    font-size: 2em;
+  }
+`
 const Button = styled.button`
   color: #333;
   background-color: white;
@@ -58,7 +70,7 @@ export default class StepOne extends React.Component {
   render() {
     return (
       <div className="text-center">
-        <h1>{`Registration`}</h1>
+        <Header>{`Registration`}</Header>
         <Detail>"SIT CRAFT Camp" ค่ายที่จะทำให้น้อง ๆ ชั้นมัธยมศึกษาปีที่ 5 - 6 ได้เรียนรู้กระบวนการดี ๆ ในการพัฒนาซอฟแวร์ <br />"SIT CRAFT Camp"  เป็นค่ายในรูปแบบ ไป - กลับ (ไม่ค้างคืน) <u>เปิดรับสมัครตั้งแต่วันนี้ - 10 ตุลาคม 2560</u></Detail>
         <Detail className="small"><u><b>{`หมายเหตุ`}</b></u> สมัครฟรี ไม่มีค่าใช้จ่าย ยกเว้น หากน้อง ๆ คนไหน ไม่สะดวกในการเดินทางไป-กลับ ทางคณะฯ จะจัดหาพอพักของมหาวิทยาลัยให้ แต่ต้องเสียค่าใช้จ่ายเอง</Detail>
 

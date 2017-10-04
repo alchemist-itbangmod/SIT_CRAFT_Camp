@@ -42,7 +42,7 @@ export default class Interesting extends React.Component {
             value={data.talent}
           />
         </div>
-        <div className="col-4">
+        <div className="col-12 col-md-4">
           <Select
             type={'text'}
             field={`shirtSize`}
@@ -53,35 +53,35 @@ export default class Interesting extends React.Component {
             dropdown={dropdown.shirtSize}
           />
         </div>
-        <div className="col-6">
+        <div className="col-12 col-md-6">
           <div className="form-group">
             <label htmlFor="InputEmail">{`มีคอมพิวเตอร์ส่วนตัวที่สามารถนำมาค่ายได้:`}</label>
             <div className="btn-group d-block" data-toggle="buttons">
-              <label className={`btn btn-outline-light w-50 ${data.needStayInUniversity === 'YES' && 'active'}`}>
+              <label className={`btn btn-outline-light w-50 ${data.haveLaptop === 'YES' && 'active'}`}>
                 <input
                   type="radio"
                   name="dormitory"
                   id="need"
                   autoComplete="off"
-                  onChange={e => props.setField('needStayInUniversity', 'YES')}
-                  checked={data.needStayInUniversity === 'YES'}
+                  onChange={e => props.setField('haveLaptop', 'YES')}
+                  checked={data.haveLaptop === 'YES'}
                   required
                 /> มี
               </label>
-              <label className={`btn btn-outline-light w-50 ${data.needStayInUniversity === 'NO' && 'active'}`}>
+              <label className={`btn btn-outline-light w-50 ${data.haveLaptop === 'NO' && 'active'}`}>
                 <input
                   type="radio"
                   name="dormitory"
                   id="no-need"
                   autoComplete="off"
-                  onChange={e => props.setField('needStayInUniversity', 'NO')}
-                  checked={data.needStayInUniversity === 'NO'}
+                  onChange={e => props.setField('haveLaptop', 'NO')}
+                  checked={data.haveLaptop === 'NO'}
                 /> ไม่มี
               </label>
             </div>
           </div>
         </div>
-        <div className="col-6">
+        <div className="col-12 col-md-6">
           <div className="form-group">
             <label htmlFor="InputEmail">{`มีความต้องการจะพักในหอพักของมหาวิทยาลัย:`}</label>
             <div className="btn-group d-block" data-toggle="buttons">

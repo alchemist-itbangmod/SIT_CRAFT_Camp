@@ -2,9 +2,6 @@ import React from 'react'
 import Router from 'next/router'
 import styled from 'styled-components'
 
-import colors from '../Core/colors'
-import { darken } from 'polished'
-
 import firebase from 'firebase'
 import clientCredentials from '../../credentials/client'
 import { haveRegistration } from '../../utils/firebase'
@@ -40,10 +37,20 @@ const Detail = styled.p`
   &.small {
     font-size: 16px;
   }
+
+  @media(max-width: 768px) {
+    font-size: 18px;
+    width: 100%;
+  }
+
+  a {
+    color: white;
+    text-decoration: underline;
+  }
 `
 
 const Team = styled.h2`
-  color: ${props => colors.team[props.clan]};
+  color: #ccc;
   letter-spacing: 0.04em;
   margin: 20px 0;
 `
@@ -100,7 +107,7 @@ export default class StepThree extends React.Component {
       <div className="text-center">
         <h1>Registration is Done!</h1>
         <Team clan={index}>{this.state.registration.team} TEAM</Team>
-        <Detail>{`การสมัครของน้อง${this.state.registration.name} ${this.state.registration.surname} เสร็จสิ้นเรียบร้อยแล้วครับ น้องสามารถรอประกาศผลได้ที่ facebook/SIT.family ในวันที่ 11 ตุลาคม 2560 พี่ๆ หวังว่าจะได้พบน้องนะครับที่ SIT CRAFT Camp : )`}</Detail>
+        <Detail>{`การสมัครของน้อง${this.state.registration.name} ${this.state.registration.surname} เสร็จสิ้นเรียบร้อยแล้วครับ น้องสามารถรอประกาศผลได้ที่ `}<a href="https://www.facebook.com/SIT.Family">SIT Fanpage</a>{` ในวันที่ 11 ตุลาคม 2560 พี่ๆ หวังว่าจะได้พบน้องที่ SIT CRAFT Camp นะครับ`}</Detail>
         <div className="share">
           <p><b>หากน้องต้องการออกจากระบบ กดปุ่มด้านล่างได้เลยครับ</b></p>
           <Button
