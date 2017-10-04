@@ -21,29 +21,33 @@ const Header = styled.h2`
   }
 `
 
+const FirstLatter = styled.img`
+  width: 1.1em;
+`
+
 const Slogan = props => (
   <SloganSection>
     <div className="container">
       <div className="row">
         <div className="col-sm-12">
           <Header>
-            <span>C</span>
+            <span><FirstLatter src="/static/images/craft/c.png" /></span>
             <span>OACHING</span>
           </Header>
           <Header>
-            <span>R</span>
+            <span><FirstLatter src="/static/images/craft/r.png" /></span>
             <span>EALISTIC</span>
           </Header>
           <Header>
-            <span>A</span>
+            <span><FirstLatter src="/static/images/craft/a.png" /></span>
             <span>GILITY</span>
           </Header>
           <Header>
-            <span>F</span>
+            <span><FirstLatter src="/static/images/craft/f.png" /></span>
             <span>RIENDSHIP</span>
           </Header>
           <Header>
-            <span>T</span>
+            <span><FirstLatter src="/static/images/craft/t.png" /></span>
             <span>ECHNOLOGY</span>
           </Header>
         </div>

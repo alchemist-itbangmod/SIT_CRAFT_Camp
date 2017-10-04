@@ -2,13 +2,44 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Section } from '../Core/Layout'
-
-const Header = styled.h2`
-  font-size: 3.2em;
-`
+import contents from './content.json'
 
 const TeamSection = styled(Section)`
   background: #fafafa;
+`
+
+const Header = styled.h2`
+  font-size: 3.2em;
+  margin: 20px;
+
+  &.small {
+    font-size: 2.2em;
+    border-top: 1px dashed #ccc;
+    padding: 20px;
+  }
+`
+
+const Clan = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+  min-height: 250px;
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 0;
+
+    &.text-muted {
+      font-size: 16px;
+    }
+  }
 `
 
 const Team = props => (
@@ -16,26 +47,38 @@ const Team = props => (
     <div className="container">
       <div className="row">
         <div className="col-12">
-          <Header className="text-center">Team.</Header>
+          <Header className="text-center">Clan.</Header>
           <p className="text-center">
-            <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta pariatur architecto doloremque iusto molestias dolorem cumque accusamus, temporibus. Obcaecati sunt rem facilis est quas ea sint quam fugit fuga, aut.</small>
+            <small></small>
           </p>
         </div>
       </div>
       <div className="row">
         {
-          [...Array(4)].map(i => (
+          contents.clans.map(clan => (
             <div className="col-12 col-md-3">
-              <div className="card text-center" style={{ width: '100%', marginBottom: '20px' }}>
+              <Clan className="card text-center">
                 <div className="card-body">
-                  <h4 className="card-title">Card title</h4>
-                  <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h3 className="card-title">{ clan.name }</h3>
+                  <p className="card-text">{ clan.description }</p>
+                  <p className="mt-2 text-muted">{ clan.requirement }</p>
                 </div>
-              </div>
+              </Clan>
             </div>
           ))
         }
+      </div>
+      <div className="row">
+        <div className="col-12">
+          <Header className="text-center small">
+            <small>Craftsman</small>
+              <br/>
+              Requirement.
+          </Header>
+          <p className="text-center">
+            <small></small>
+          </p>
+        </div>
       </div>
       <div className="row">
         <div className="col-12 text-center">

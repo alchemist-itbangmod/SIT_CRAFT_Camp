@@ -1,21 +1,24 @@
 {
-  "whatis": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  "teams": [
+  "clans": [
     {
       "name": "Developer",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "description": "มือคีย์บอร์ดที่สามารถสร้างสรรค์โปรแกรมขึ้นมาตามกระบวนการ มีทักษะการคิด และวิเคราะห์ที่ดี",
+      "requirement": "ต้องมีพื้นฐานการเขียนโปรแกรมมาก่อน"
     },
     {
       "name": "UI/UX Design",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "description": "เหล่าคนช่างฝัน ที่มีจิตนาการ และความสามารถในการสร้างสรรค์ ภายใต้เหตุผลและความเป็นจริงที่เป็นไปได้",
+      "requirement": "ต้องมีพื้นฐานทางด้านการออกแบบมาก่อน"
     },
     {
       "name": "Infrastructure",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      "description": "เหล่ามนุษย์ผู้ชอบความหนาวเย็น พบเห็นได้ตามห้องเซิร์ฟเวอร์ ถนัดเรื่องสั่งงานลินุ๊กซ์",
+      "requirement": "ต้องมีพื้นฐานลินุ๊กซ์ การใช้งานเซิฟเวอร์เบื้องต้น รู้จัก HTTPS มาก่อน"
     },
     {
       "name": "Game",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
+      "description": "เหล่าเกมเมอร์ผู้ที่ชื่นชอบในการพัฒนาเกม มีใจรักในการสร้างสรรค์สิ่งใหม่ๆ เพื่อความสนุกของทุกคน",
+      "requirement": "ต้องการพื้นฐานการพัฒนาเกมมาก่อน"
+    }
   ]
 }

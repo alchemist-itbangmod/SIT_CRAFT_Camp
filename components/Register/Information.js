@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { actions as registerActions } from '../../ducks/register'
-
 import dropdown from './data-dropdown.json'
 import { Input, Select } from '../Core/Input'
 

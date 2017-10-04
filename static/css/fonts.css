@@ -2,3 +2,8 @@
 	font-family: 'PWScratchedFont';
 	src: url('../fonts/pw-scratched-font.ttf');
 }
+
+@font-face{
+	font-family: 'Supermarket';
+	src: url('../fonts/supermarket.ttf');
+}

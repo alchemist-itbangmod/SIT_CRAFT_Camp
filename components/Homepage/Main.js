@@ -14,7 +14,13 @@ injectGlobal`
     src: url('/static/fonts/pw-scratched-font.ttf') format('ttf');
   }
 
+  @font-face {
+    font-family: 'Supermarket';
+    src: url('/static/fonts/supermarket.ttf') format('ttf');
+  }
+
   body {
+    font-family: 'Supermarket';
     letter-spacing: .024681em;
     -webkit-font-smoothing: antialiased;
     margin: 0 !important;
