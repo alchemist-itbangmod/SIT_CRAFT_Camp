@@ -14,6 +14,10 @@ const TeamSection = styled(Section)`
   .promo {
     font-size: 24px;
     padding-top: 16px;
+
+    @media(max-width: 768px) {
+      font-size: 20px;
+    }
   }
 `
 
@@ -32,7 +36,6 @@ const Clan = styled.div`
   width: 100%;
   margin-bottom: 20px;
   transition: all .4s;
-  ${'' /* border: 1px solid ${props => opacify(0.3, colors.team[props.clan])}; */}
 
   .card-body {
     padding: 1rem;
@@ -41,6 +44,10 @@ const Clan = styled.div`
   h3 {
     font-size: 22px;
     color: ${props => darken(0.15, colors.team[props.clan])};
+
+    @media(max-width: 768px) {
+      font-size: 28px;
+    }
   }
 
   p {
@@ -53,6 +60,10 @@ const Clan = styled.div`
       font-size: 18px;
       min-height: 0;
       color: ${props => darken(0.15, colors.team[props.clan])};
+    }
+
+    @media(max-width: 768px) {
+      min-height: 100px;
     }
   }
 `

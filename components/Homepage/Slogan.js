@@ -21,10 +21,10 @@ const Header = styled.h2`
       opacity: 0.5;
     }
   }
-`
 
-const FirstLatter = styled.img`
-  width: 1.1em;
+  @media(max-width: 768px) {
+    font-size: 2.8em;
+  }
 `
 
 const Slogan = props => (

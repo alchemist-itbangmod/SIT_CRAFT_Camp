@@ -9,11 +9,16 @@ const HeroSection = styled(Section)`
   font-family: 'PWScratchedFont';
   background: url("/static/images/backgroud.png"), radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
   min-height: 100vh;
+  background-attachment: fixed;
 `
 
 const Header = styled.h1`
   font-size: 6.2em;
   padding-top: calc(80px + 20vh);
+
+  @media(max-width: 768px) {
+    padding: 0;
+  }
 `
 
 const Subtitle = styled.p`
@@ -23,6 +28,14 @@ const Subtitle = styled.p`
 
     &.small {
       font-size: 1.2em;
+    }
+
+    @media(max-width: 768px) {
+      font-size: 1.8em;
+
+      &.small {
+        font-size: .8em;
+      }
     }
   }
 `
