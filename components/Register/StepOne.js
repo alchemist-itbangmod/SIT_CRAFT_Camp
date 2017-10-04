@@ -23,9 +23,10 @@ export default class StepOne extends React.Component {
     return (
       <div className="text-center">
         <h1>{`Welcome to SIT CRAFT Camp`}</h1>
-        <p>{`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore sequi porro soluta, quod nisi? Deserunt deleniti illo rerum necessitatibus, porro facilis, molestias aliquam corporis magnam harum, cupiditate ratione est.`}</p>
+        <p>{`"SIT CRAFT Camp"  ค่ายฟรี ๆ ที่จะทำให้น้อง ๆ ชั้นมัธยมศึกษาปีที่ 5 - 6 ได้เรียนรู้กระบวนการดี ๆ ในการพัฒนาซอฟแวร์ "SIT CRAFT Camp"  เป็นค่ายในรูปแบบ ไป - กลับ (ไม่ค้างคืน) เปิดรับสมัครตั้งแต่วันนี้ - 10 ตุลาคม 2560`}</p>
+        <p><u><b>{`หมายเหตุ`}</b></u> {`สมัครฟรี ไม่มีค่าใช้จ่าย ยกเว้น หากน้อง ๆ คนไหน ไม่สะดวกในการเดินทางไป-กลับ ทางคณะฯ จะจัดหาพอพักของมหาวิทยาลัยให้ แต่ต้องเสียค่าใช้จ่ายเอง`}</p>
+        
         <div className="signup">
-          <p><b>{`Sign up with your GitHub credentials to get started.`}</b></p>
           <button
             className="btn btn-lg btn-secondary"
             onClick={this.handleLogin}

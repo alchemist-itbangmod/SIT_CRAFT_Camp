@@ -21,7 +21,7 @@ export default class Contact extends React.Component {
         <div className="col-12">
           <h3 className="text-center">Contact</h3>
           <p className="text-center">
-            <small>Lorem ipsum dolor sit amet, consectetur.</small>
+            <small>ข้อมูลในการติดต่อน้องๆ โดยทางคณะจะไม่เปิดเผยข้อมูลในส่วนนี้กับผู้อื่น </small>
           </p>
         </div>
         <div className="row">
@@ -56,7 +56,7 @@ export default class Contact extends React.Component {
           </div>
           <div className="col-4">
             <Input
-              type={'text'}
+              type={'number'}
               field={`zipcode`}
               label={`รหัสไปรษณีย์`}
               placeholder={`---`}
