@@ -72,22 +72,28 @@ const Team = props => (
         <div className="col-12">
           <Header className="text-center small">
             <small>Craftsman</small>
-              <br/>
+              <br />
               Requirement.
           </Header>
           <p className="text-center">
-            <small></small>
+            ชั้นมัธยมศึกษาปีที่ 5 - 6
+          </p>
+          <p className="text-center">
+            สายการเรียน วิทย์-คณิต/วิทย์-คอม/ศิลป์-คำนวณ
+          </p>
+          <p className="text-center">
+            เกรดเฉลี่ยรวม ไม่ตำ่กว่า 2.50
           </p>
         </div>
       </div>
       <div className="row">
         <div className="col-12 text-center">
-          <button className="btn btn-lg btn-secondary">
-            JOIN THE CLAN.
-          </button>
           <p className="text-center">
-            <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small>
+            <small>ถ้าพร้อมที่จะร่วมเป็นส่วนหนึ่งกับเรา สมัครเลย!</small>
           </p>
+          <button className="btn btn-lg btn-secondary">
+            สมัครเข้าร่วม
+          </button>
         </div>
       </div>
     </div>
