@@ -1,6 +1,27 @@
 import React from 'react'
+import Router from 'next/router'
+
+import firebase from 'firebase'
+import clientCredentials from '../../credentials/client'
+import { haveRegistration } from '../../utils/firebase'
 
 export default class StepThree extends React.Component {
+  async componentDidMount () {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(clientCredentials)
+    }
+    firebase.auth().onAuthStateChanged(async user => {
+      if (user) {
+        let registration = await haveRegistration(firebase, user)
+        if (registration === null) {
+          Router.push(`/register?currentStep=${2}`)
+        }
+      } else {
+        Router.push(`/register?currentStep=${1}`)
+      }
+    })
+  }
+
   render() {
     return (
       <div>

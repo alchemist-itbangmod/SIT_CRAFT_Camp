@@ -1,6 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import Router from 'next/router';
+import Router from 'next/router'
+
+import firebase from 'firebase'
+import clientCredentials from '../../credentials/client'
 
 import colors from '../Core/colors'
 import { darken } from 'polished'
@@ -42,9 +45,16 @@ const Detail = styled.div`
 
 class Main extends React.Component {
   componentDidMount() {
-    if (this.props.isLogin) {
-      Router.push('/register')
+    if (!firebase.apps.length) {
+      firebase.initializeApp(clientCredentials)
     }
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        Router.push(`/register?currentStep=${2}`)
+      } else {
+        Router.push(`/register?currentStep=${1}`)
+      }
+    })
   }
 
   render() {

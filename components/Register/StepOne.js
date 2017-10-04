@@ -4,19 +4,18 @@ import firebase from 'firebase'
 import clientCredentials from '../../credentials/client'
 
 export default class StepOne extends React.Component {
-  componentDidMount () {
-    firebase.initializeApp(clientCredentials)
+  async componentDidMount () {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(clientCredentials)
+    }
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         Router.push(`/register?currentStep=${2}`)
-        return user.getToken()
-          .then((token) => {})
-          .then((res) => {})
       }
     })
   }
 
-  handleLogin () {
+  handleLogin = () => {
     firebase.auth().signInWithPopup(new firebase.auth.GithubAuthProvider())
   }
 

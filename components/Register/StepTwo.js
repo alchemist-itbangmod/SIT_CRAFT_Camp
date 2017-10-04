@@ -36,11 +36,12 @@ const Fieldset = styled.fieldset`
 )
 export default class StepTwo extends React.Component {
   async componentDidMount () {
-    firebase.initializeApp(clientCredentials)
+    if (!firebase.apps.length) {
+      firebase.initializeApp(clientCredentials)
+    }
     firebase.auth().onAuthStateChanged(async user => {
       if (user) {
         let registration = await haveRegistration(firebase, user)
-
         if (registration !== null) {
           Router.push(`/register?currentStep=${3}`)
         }
@@ -48,14 +49,15 @@ export default class StepTwo extends React.Component {
         const data = user.providerData[0]
         this.props.setField('email', data.email)
         this.props.setField('name', data.displayName)
-
-        return user.getToken()
-          .then((token) => {})
-          .then((res) => {})
       } else {
         Router.push(`/register?currentStep=${1}`)
       }
     })
+  }
+
+  handleLogout = async () => {
+    firebase.auth().signOut()
+    Router.push(`/register?currentStep=${1}`)
   }
 
   render() {
@@ -117,10 +119,12 @@ export default class StepTwo extends React.Component {
             <hr />
             <Questions />
             <div className="text-center">
-              <small className="form-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small>
               <button className="btn btn-primary btn-lg w-50">
                 Submit
               </button>
+              <small className="form-text text-muted">
+                หากต้องการออกจากระบบกรุณากดปุ่ม <a href="#" onClick={this.handleLogout}>ออกจากระบบ</a> นี้
+              </small>
             </div>
           </Fieldset>
         </form>
