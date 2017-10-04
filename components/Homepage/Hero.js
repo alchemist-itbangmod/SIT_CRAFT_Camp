@@ -8,6 +8,7 @@ const HeroSection = styled(Section)`
   color: white;
   font-family: 'PWScratchedFont';
   background: url("/static/images/backgroud.png"), radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
+  background-attachment: fixed;
   min-height: 100vh;
 `
 
