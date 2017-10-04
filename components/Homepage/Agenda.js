@@ -2,11 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Section } from '../Core/Layout'
-import contents from './content.json'
 
 const AgendaSection = styled(Section)`
   background: #fafafa;
 `
+
+const AgendaLeft = styled.div.attrs({
+  className: 'col-12 col-md-6'
+})`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const AgendaContent = styled.div`
   font-size: 1.2em;
 `
@@ -34,30 +42,28 @@ const Agenda = props => (
   <AgendaSection>
     <div className="container">
       <div className="row">
-        <div className="col-12 col-md-6">
-          <div className="row">
-            <div className="col-md-11 ml-md-auto">
-              <Header className="text-center">Agenda.</Header>
-              <p>
-                <small />
-              </p>
-              <AgendaContent>
-                {
-                  data.map(e => (
-                    <div className="row">
-                      <div className="col-6 text-right">
-                        {e[0]}
-                      </div>
-                      <div className="col-6">
-                        <b>{e[1]}</b>
-                      </div>
+        <AgendaLeft>
+          <div>
+            <Header className="text-center">Agenda.</Header>
+            <p>
+              <small />
+            </p>
+            <AgendaContent>
+              {
+                data.map(e => (
+                  <div className="row" key={e[0]}>
+                    <div className="col-6 text-right">
+                      {e[0]}
                     </div>
-                  ))
-                }
-              </AgendaContent>
-            </div>
+                    <div className="col-6">
+                      <b>{e[1]}</b>
+                    </div>
+                  </div>
+                ))
+              }
+            </AgendaContent>
           </div>
-        </div>
+        </AgendaLeft>
         <div className="col-12 col-md-6">
           <img src="/static/images/logo-sit-craft-camp.svg" className="img-fluid" alt="Logo" />
         </div>
