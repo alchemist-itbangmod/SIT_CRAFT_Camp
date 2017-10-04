@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import styled, { css } from 'styled-components'
+import instance from '../../libs/axios'
 
 import { actions as registerActions } from '../../ducks/register'
 
@@ -30,6 +31,18 @@ const Fieldset = styled.fieldset`
   { setField: registerActions.setField }
 )
 export default class StepTwo extends React.Component {
+  onSubmit = async (e) => {
+    e.preventDefault()
+    let { props } = this
+    let data = props.registerData
+    console.log(data)
+    await instance.post(`/candidates`, { data: data })
+      .then(resp => {
+        console.log(resp)
+        // return resp
+      })
+  }
+
   render() {
     const { props } = this
     const data = props.registerData
@@ -79,7 +92,7 @@ export default class StepTwo extends React.Component {
           </div>
         </div>
         <hr />
-        <form>
+        <form onSubmit={e => this.onSubmit(e)}>
           <Fieldset>
             <Information />
             <hr />
