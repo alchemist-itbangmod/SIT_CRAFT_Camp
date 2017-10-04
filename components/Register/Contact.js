@@ -62,7 +62,17 @@ export default class Contact extends React.Component {
               value={data.zipcode}
             />
           </div>
-          <div className="col-6">
+          <div className="col-5">
+            <Input
+              type={'text'}
+              field={`facebook`}
+              label={`facebook URL`}
+              placeholder={`https://www.facebook.com/SIT.Family/`}
+              handleChange={props.setField}
+              value={data.facebook}
+            />
+          </div>
+          <div className="col-5">
             <Input
               type={'text'}
               field={`telno`}

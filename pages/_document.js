@@ -3,7 +3,7 @@ import { ServerStyleSheet } from 'styled-components'
 import seo from '../seo.json';
 
 const config = {
-  baseURL: 'craft.sitchallenge.com'
+  baseURL: 'https://craft.sitchallenge.com'
 }
 
 export default class MyDocument extends Document {
