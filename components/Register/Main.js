@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import Router from 'next/router'
+import { connect } from 'react-redux'
+import { haveRegistration } from '../../utils/firebase'
+
+import Loading from './Loading'
+import { actions as appActions } from '../../ducks/app'
 
 import firebase from 'firebase'
 import clientCredentials from '../../credentials/client'
@@ -19,6 +24,7 @@ const RegisterSection = styled(Section)`
   color: white;
   background: radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
   min-height: 100vh;
+  position: relative;
 
   hr {
     border-top: 1px dashed rgba(255,255,255,.3);
@@ -36,31 +42,48 @@ const Header = styled.h1`
   font-family: 'PWScratchedFont';
   font-size: 3.2em;
   margin-bottom: .5em;
-  padding-top: calc(60px + 10vh);
+  padding-top: calc(30px + 5vh);
 `
 
 const Detail = styled.div`
   margin: 40px;
 `
 
+@connect(
+  state => ({
+    loading: state.app.loading
+  }),
+  { ...appActions }
+)
 class Main extends React.Component {
   componentDidMount() {
+    console.log(this.props.loading)
     if (!firebase.apps.length) {
       firebase.initializeApp(clientCredentials)
     }
-    firebase.auth().onAuthStateChanged(user => {
+    firebase.auth().onAuthStateChanged(async user => {
       if (user) {
-        Router.push(`/register?currentStep=${2}`)
+        let registration = await haveRegistration(firebase, user)
+        if (registration === null) {
+          Router.push(`/register?currentStep=${2}`)
+          this.props.doneLoading()
+        } else {
+          Router.push(`/register?currentStep=${3}`)
+          this.props.doneLoading()
+        }
       } else {
         Router.push(`/register?currentStep=${1}`)
+        this.props.doneLoading()
       }
     })
   }
 
   render() {
     const currentStep = +this.props.url.query.currentStep
+
     return (
       <RegisterSection>
+        <Loading active={this.props.loading} />
         <div className="container">
           <Header className="text-center">SIT CRAFT Camp</Header>
           <Stepper section={currentStep} />

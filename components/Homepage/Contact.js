@@ -22,8 +22,14 @@ const Manu = styled.ul`
     display: inline-block;
     &:not(:first-child):before {
       content: "/";
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    a  {
+      color: white;
+      text-decoration: underline;
+      text-decoration-style: dotted;
     }
   }
 `
@@ -36,13 +42,12 @@ const Contact = props => (
           <hr />
           <div className="row">
             <div className="col-3">
-              <small>{`© 2017 Alchemist`}</small>
+              {`© 2017 Alchemist`}
             </div>
             <div className="col-9 text-right">
               <Manu>
-                <li><small>WHAT IS</small></li>
-                <li><small>TEAM</small></li>
-                <li><small>SLOGAN</small></li>
+                <li>facebook: <a href="https://www.facebook.com/SIT.Family/">@SIT.Family</a></li>
+                <li>โทรศัพท์: <a href="tel:024709887">02-4709887</a> (พี่รุ่ง)</li>
               </Manu>
             </div>
           </div>

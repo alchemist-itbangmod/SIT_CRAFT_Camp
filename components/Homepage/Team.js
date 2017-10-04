@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Router from 'next/router'
 
+import colors from '../Core/colors'
+import { darken } from 'polished'
+
 import { Section } from '../Core/Layout'
 import contents from './content.json'
 
@@ -24,21 +27,25 @@ const Clan = styled.div`
   width: 100%;
   margin-bottom: 20px;
   min-height: 250px;
+  border: 1px solid ${props => colors.team[props.clan]};
 
   .card-body {
     padding: 1rem;
   }
 
   h3 {
-    font-size: 22px;
+    font-size: 48px;
+    color: ${props => darken(0.15, colors.team[props.clan])};
   }
 
   p {
-    font-size: 18px;
+    font-size: 20px;
+    color: #333;
     margin: 0;
 
-    &.text-muted {
-      font-size: 16px;
+    &.requirement {
+      font-size: 18px;
+      color: ${props => darken(0.15, colors.team[props.clan])};
     }
   }
 `
@@ -56,37 +63,18 @@ const Team = props => (
       </div>
       <div className="row">
         {
-          contents.clans.map(clan => (
-            <div key={clan.name} className="col-12 col-md-3">
-              <Clan className="card text-center">
+          contents.clans.map((clan, key) => (
+            <div key={clan.name} className="col-12 col-md-6">
+              <Clan className="card text-center" clan={key}>
                 <div className="card-body">
                   <h3 className="card-title">{ clan.name }</h3>
                   <p className="card-text">{ clan.description }</p>
-                  <p className="mt-2 text-muted">{ clan.requirement }</p>
+                  <p className="mt-2 requirement">``{ clan.requirement }``</p>
                 </div>
               </Clan>
             </div>
           ))
         }
-      </div>
-      <div className="row">
-        <div className="col-12">
-          <Header className="text-center">
-            Craftsman <small>Requirement.</small>
-          </Header>
-          <p className="text-center">
-            <small>คุณสมบัติเบื้องต้นของนักสร้าง</small>
-          </p>
-          <p className="text-center">
-            ชั้นมัธยมศึกษาปีที่ 5 - 6
-          </p>
-          <p className="text-center">
-            สายการเรียน วิทย์-คณิต/วิทย์-คอม/ศิลป์-คำนวณ
-          </p>
-          <p className="text-center">
-            เกรดเฉลี่ยรวม ไม่ตำ่กว่า 2.50
-          </p>
-        </div>
       </div>
       <div className="row">
         <div className="col-12 text-center">

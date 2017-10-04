@@ -33,23 +33,23 @@ const Slogan = props => (
       <div className="row">
         <div className="col-sm-12">
           <Header>
-            <span><FirstLatter src="/static/images/craft/c.png" /></span>
+            <span>C</span>
             <span>OACHING</span>
           </Header>
           <Header>
-            <span><FirstLatter src="/static/images/craft/r.png" /></span>
+            <span>R</span>
             <span>EALISTIC</span>
           </Header>
           <Header>
-            <span><FirstLatter src="/static/images/craft/a.png" /></span>
+            <span>A</span>
             <span>GILITY</span>
           </Header>
           <Header>
-            <span><FirstLatter src="/static/images/craft/f.png" /></span>
+            <span>F</span>
             <span>RIENDSHIP</span>
           </Header>
           <Header>
-            <span><FirstLatter src="/static/images/craft/t.png" /></span>
+            <span>T</span>
             <span>ECHNOLOGY</span>
           </Header>
         </div>
