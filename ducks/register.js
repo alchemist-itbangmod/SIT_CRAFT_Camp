@@ -34,7 +34,7 @@ let InitialState = {
   shirtSize: '',
   needStayInUniversity: '',
   // Team Question
-  questions: []
+  question: ''
 }
 
 // Reducer
