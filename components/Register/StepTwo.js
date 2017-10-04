@@ -5,7 +5,7 @@ import styled, { css } from 'styled-components'
 
 import firebase from 'firebase'
 import clientCredentials from '../../credentials/client'
-import { haveRegistration } from '../../utils/firebase'
+import { haveRegistration, saveRegistration } from '../../utils/firebase'
 
 import { actions as registerActions } from '../../ducks/register'
 
@@ -35,6 +35,9 @@ const Fieldset = styled.fieldset`
   { setField: registerActions.setField }
 )
 export default class StepTwo extends React.Component {
+  state = {
+    user: null
+  }
   async componentDidMount () {
     if (!firebase.apps.length) {
       firebase.initializeApp(clientCredentials)
@@ -47,6 +50,7 @@ export default class StepTwo extends React.Component {
         }
 
         const data = user.providerData[0]
+        this.setState({ user })
         this.props.setField('email', data.email)
         this.props.setField('name', data.displayName)
       } else {
@@ -58,6 +62,12 @@ export default class StepTwo extends React.Component {
   handleLogout = async () => {
     firebase.auth().signOut()
     Router.push(`/register?currentStep=${1}`)
+  }
+
+  handleRegister = async e => {
+    e.preventDefault()
+    console.log(this.props.registerData)
+    saveRegistration(firebase, this.state.user, this.props.registerData)
   }
 
   render() {
@@ -80,7 +90,7 @@ export default class StepTwo extends React.Component {
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'developer' && 'active'}`}
               onClick={e => props.setField('team', 'developer')}
             >
-              DEVELOPER
+              {`DEVELOPER`}
             </button>
           </div>
           <div className="col-3">
@@ -88,7 +98,7 @@ export default class StepTwo extends React.Component {
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'design' && 'active'}`}
               onClick={e => props.setField('team', 'design')}
             >
-              UX/UI DESIGN
+              {`UX/UI DESIGN`}
             </button>
           </div>
           <div className="col-3">
@@ -96,7 +106,7 @@ export default class StepTwo extends React.Component {
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'infrastructure' && 'active'}`}
               onClick={e => props.setField('team', 'infrastructure')}
             >
-              INFRASTRUCTURE
+              {`INFRASTRUCTURE`}
             </button>
           </div>
           <div className="col-3">
@@ -104,13 +114,13 @@ export default class StepTwo extends React.Component {
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'game' && 'active'}`}
               onClick={e => props.setField('team', 'game')}
             >
-              GAME
+              {`GAME`}
             </button>
           </div>
         </div>
         <hr />
-        <form>
-          <Fieldset>
+        <form onSubmit={this.handleRegister}>
+          <Fieldset disabled={data.team === ''}>
             <Information />
             <hr />
             <Contact />

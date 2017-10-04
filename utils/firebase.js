@@ -1,13 +1,13 @@
 export function haveRegistration (firebase, user) {
-  return firebase.database().ref().child(`topics/${user.uid}`)
+  return firebase.database().ref().child(`registration/${user.uid}`)
     .once('value').then(snapshot => snapshot.val())
 }
 
 export function saveRegistration (firebase, user, registration) {
-  return firebase.database().ref().child(`topics/${user.uid}`)
+  return firebase.database().ref().child(`registration/${user.uid}`)
     .set({
       ...registration,
-      registeredAt: new Date()
+      registeredAt: firebase.database.ServerValue.TIMESTAMP
     })
     .then((data) => data)
 }

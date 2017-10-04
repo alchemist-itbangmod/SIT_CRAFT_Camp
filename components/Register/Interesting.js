@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { actions as registerActions } from '../../ducks/register'
-import { Textarea } from '../Core/Input'
+import { Textarea, Select } from '../Core/Input'
+import dropdown from './data-dropdown.json'
 
 @connect(
   state => ({
@@ -42,12 +43,15 @@ export default class Interesting extends React.Component {
           />
         </div>
         <div className="col-4">
-          <div className="form-group">
-            <label htmlFor="InputEmail">ไซต์เสื้อ:</label>
-            <select className="form-control">
-              <option>Default select</option>
-            </select>
-          </div>
+          <Select
+            type={'text'}
+            field={`shirtSize`}
+            label={`ไซต์เสื้อ`}
+            placeholder={`---`}
+            handleChange={props.setField}
+            value={data.shirtSize}
+            dropdown={dropdown.shirtSize}
+          />
         </div>
         <div className="col-6">
           <div className="form-group">
