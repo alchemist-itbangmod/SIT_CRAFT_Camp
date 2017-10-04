@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Router from 'next/router'
 
 import { Section } from '../Core/Layout'
 import contents from './content.json'
@@ -9,7 +10,7 @@ const TeamSection = styled(Section)`
 `
 
 const Header = styled.h2`
-  font-size: 3.2em;
+  font-size: 3.8em;
   margin: 20px;
 
   &.small {
@@ -49,14 +50,14 @@ const Team = props => (
         <div className="col-12">
           <Header className="text-center">Clan.</Header>
           <p className="text-center">
-            <small></small>
+            <small />
           </p>
         </div>
       </div>
       <div className="row">
         {
           contents.clans.map(clan => (
-            <div className="col-12 col-md-3">
+            <div key={clan.name} className="col-12 col-md-3">
               <Clan className="card text-center">
                 <div className="card-body">
                   <h3 className="card-title">{ clan.name }</h3>
@@ -70,11 +71,12 @@ const Team = props => (
       </div>
       <div className="row">
         <div className="col-12">
-          <Header className="text-center small">
-            <small>Craftsman</small>
-              <br />
-              Requirement.
+          <Header className="text-center">
+            Craftsman <small>Requirement.</small>
           </Header>
+          <p className="text-center">
+            <small>คุณสมบัติเบื้องต้นของนักสร้าง</small>
+          </p>
           <p className="text-center">
             ชั้นมัธยมศึกษาปีที่ 5 - 6
           </p>
@@ -91,7 +93,10 @@ const Team = props => (
           <p className="text-center">
             <small>ถ้าพร้อมที่จะร่วมเป็นส่วนหนึ่งกับเรา สมัครเลย!</small>
           </p>
-          <button className="btn btn-lg btn-secondary">
+          <button
+            className="btn btn-lg btn-secondary"
+            onClick={() => Router.push('/register')}
+          >
             สมัครเข้าร่วม
           </button>
         </div>

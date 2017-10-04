@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Router from 'next/router';
+
 import colors from '../Core/colors'
 import { darken } from 'polished'
 
@@ -13,6 +15,7 @@ import StepThree from './StepThree'
 const RegisterSection = styled(Section)`
   color: white;
   background: radial-gradient(circle, ${colors.blue} 0, ${darken(0.15, colors.blue)} 120%);
+  min-height: 100vh;
 
   hr {
     border-top: 1px dashed rgba(255,255,255,.3);
@@ -38,16 +41,23 @@ const Detail = styled.div`
 `
 
 class Main extends React.Component {
+  componentDidMount() {
+    if (this.props.isLogin) {
+      Router.push('/register')
+    }
+  }
+
   render() {
+    const currentStep = +this.props.url.query.currentStep
     return (
       <RegisterSection>
         <div className="container">
           <Header className="text-center">SIT CRAFT Camp</Header>
-          <Stepper section={2} />
+          <Stepper section={currentStep} />
           <Detail>
-            {/* <StepOne /> */}
-            <StepTwo />
-            {/* <StepThree /> */}
+            { currentStep === 1 && <StepOne /> }
+            { currentStep === 2 && <StepTwo /> }
+            { currentStep === 3 && <StepThree /> }
           </Detail>
         </div>
       </RegisterSection>
