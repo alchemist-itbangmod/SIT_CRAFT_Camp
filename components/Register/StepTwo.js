@@ -36,18 +36,6 @@ const Fieldset = styled.fieldset`
   { setField: registerActions.setField }
 )
 export default class StepTwo extends React.Component {
-<<<<<<< HEAD
-  onSubmit = async (e) => {
-    e.preventDefault()
-    let { props } = this
-    let data = props.registerData
-    console.log(data)
-    await instance.post(`/candidates`, { data: data })
-      .then(resp => {
-        console.log(resp)
-        // return resp
-      })
-=======
   state = {
     user: null
   }
@@ -81,7 +69,6 @@ export default class StepTwo extends React.Component {
     e.preventDefault()
     console.log(this.props.registerData)
     saveRegistration(firebase, this.state.user, this.props.registerData)
->>>>>>> 4bc690b99f27b2f1559150a606fc227ca916036a
   }
 
   render() {
