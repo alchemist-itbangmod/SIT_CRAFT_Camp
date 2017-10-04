@@ -21,7 +21,7 @@ export default class Interesting extends React.Component {
         <div className="col-12">
           <h3 className="text-center">Interesting.</h3>
           <p className="text-center">
-            <small>ข้อมูลความสนใจ ของน้องๆ ข้อมูลส่วนนี้มีผลต่อการคัดเลือกน้อง</small>
+            ข้อมูลความสนใจ ของน้องๆ ข้อมูลส่วนนี้มีผลต่อการคัดเลือกน้อง
           </p>
         </div>
         <div className="col-12">
@@ -29,6 +29,7 @@ export default class Interesting extends React.Component {
             field={`activities`}
             label={`กิจกรรมที่เคยเข้าร่วมหรือทำมาก่อน`}
             placeholder={`---`}
+            footer={`** มีผลต่อการคัดเลือกน้องเพื่อเข้าสู่ค่าย`}
             handleChange={props.setField}
             value={data.activities}
           />
@@ -37,7 +38,7 @@ export default class Interesting extends React.Component {
           <Textarea
             field={`talent`}
             label={`ทักษะความสามารถพิเศษด้านคอมพิวเตอร์`}
-            placeholder={`---`}
+            footer={`** มีผลต่อการคัดเลือกน้องเพื่อเข้าสู่ค่าย`}
             handleChange={props.setField}
             value={data.talent}
           />

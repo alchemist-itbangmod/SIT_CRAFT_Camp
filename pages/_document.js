@@ -16,8 +16,9 @@ export default class MyDocument extends Document {
           <title>SIT CRAFT Camp 2017 | Main</title>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-          <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
-          <link rel="stylesheet" href="/static/css/fonts.css" />
+          <link rel="stylesheet" href="/static/css/bootstrap.min.css" async />
+          <link rel="stylesheet" href="/static/css/fonts.css" async />
+          <link rel="stylesheet" href="/static/font-awesome/css/font-awesome.min.css" async />
 
           <link href="https://fonts.googleapis.com/css?family=Prompt:300,400" rel="stylesheet" />
 

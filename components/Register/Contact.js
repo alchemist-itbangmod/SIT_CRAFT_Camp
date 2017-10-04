@@ -29,7 +29,6 @@ export default class Contact extends React.Component {
             <Textarea
               field={`address`}
               label={`ที่อยู่`}
-              placeholder={`---`}
               handleChange={props.setField}
               value={data.address}
             />
@@ -39,7 +38,6 @@ export default class Contact extends React.Component {
               type={'text'}
               field={`district`}
               label={`เขต/อำเภอ`}
-              placeholder={`---`}
               handleChange={props.setField}
               value={data.district}
             />
@@ -59,7 +57,7 @@ export default class Contact extends React.Component {
               type={'number'}
               field={`zipcode`}
               label={`รหัสไปรษณีย์`}
-              placeholder={`---`}
+              placeholder={`10140`}
               handleChange={props.setField}
               value={data.zipcode}
             />
@@ -69,7 +67,7 @@ export default class Contact extends React.Component {
               type={'text'}
               field={`telno`}
               label={`เบอร์โทรศัพท์`}
-              placeholder={`---`}
+              placeholder={`051-234-5678`}
               handleChange={props.setField}
               value={data.telno}
             />

@@ -2,11 +2,19 @@ import React from 'react'
 import styled from 'styled-components'
 import Router from 'next/router'
 
+import colors from '../Core/colors'
+import { darken, opacify } from 'polished'
+
 import { Section } from '../Core/Layout'
 import contents from './content.json'
 
 const TeamSection = styled(Section)`
   background: #fafafa;
+
+  .promo {
+    font-size: 24px;
+    padding-top: 16px;
+  }
 `
 
 const Header = styled.h2`
@@ -23,7 +31,8 @@ const Header = styled.h2`
 const Clan = styled.div`
   width: 100%;
   margin-bottom: 20px;
-  min-height: 250px;
+  transition: all .4s;
+  ${'' /* border: 1px solid ${props => opacify(0.3, colors.team[props.clan])}; */}
 
   .card-body {
     padding: 1rem;
@@ -31,15 +40,45 @@ const Clan = styled.div`
 
   h3 {
     font-size: 22px;
+    color: ${props => darken(0.15, colors.team[props.clan])};
   }
 
   p {
-    font-size: 18px;
+    font-size: 20px;
+    color: #333;
     margin: 0;
+    min-height: 130px;
 
-    &.text-muted {
-      font-size: 16px;
+    &.requirement {
+      font-size: 18px;
+      min-height: 0;
+      color: ${props => darken(0.15, colors.team[props.clan])};
     }
+  }
+`
+
+const Button = styled.button`
+  color: #333;
+  background-color: white;
+  border-color: #ccc;
+  letter-spacing: .3px;
+  cursor: pointer;
+  padding: 10px 38px;
+
+  span {
+    display: inline-block;
+    font-size: 32px;
+    padding-top: 7px;
+  }
+`
+
+const LogoTeam = styled.div`
+  padding: 20px;
+  min-height: 200px;
+
+  img {
+    margin: 0 auto;
+    display: block;
   }
 `
 
@@ -56,13 +95,16 @@ const Team = props => (
       </div>
       <div className="row">
         {
-          contents.clans.map(clan => (
+          contents.clans.map((clan, key) => (
             <div key={clan.name} className="col-12 col-md-3">
-              <Clan className="card text-center">
+              <Clan className="card text-center" clan={key}>
                 <div className="card-body">
                   <h3 className="card-title">{ clan.name }</h3>
+                  <LogoTeam>
+                    <img src={`/static/images/team/${key}.png`} className="img-fluid" alt="" />
+                  </LogoTeam>
                   <p className="card-text">{ clan.description }</p>
-                  <p className="mt-2 text-muted">{ clan.requirement }</p>
+                  <p className="mt-2 requirement">``{ clan.requirement }``</p>
                 </div>
               </Clan>
             </div>
@@ -70,35 +112,16 @@ const Team = props => (
         }
       </div>
       <div className="row">
-        <div className="col-12">
-          <Header className="text-center">
-            Craftsman <small>Requirement.</small>
-          </Header>
-          <p className="text-center">
-            <small>คุณสมบัติเบื้องต้นของนักสร้าง</small>
-          </p>
-          <p className="text-center">
-            ชั้นมัธยมศึกษาปีที่ 5 - 6
-          </p>
-          <p className="text-center">
-            สายการเรียน วิทย์-คณิต/วิทย์-คอม/ศิลป์-คำนวณ
-          </p>
-          <p className="text-center">
-            เกรดเฉลี่ยรวม ไม่ตำ่กว่า 2.50
-          </p>
-        </div>
-      </div>
-      <div className="row">
         <div className="col-12 text-center">
-          <p className="text-center">
-            <small>ถ้าพร้อมที่จะร่วมเป็นส่วนหนึ่งกับเรา สมัครเลย!</small>
+          <p className="promo text-center">
+            ถ้าพร้อมที่จะร่วมเป็นส่วนหนึ่งกับเรา สมัครเลย!
           </p>
-          <button
+          <Button
             className="btn btn-lg btn-secondary"
             onClick={() => Router.push('/register')}
           >
-            สมัครเข้าร่วม
-          </button>
+            <span>สมัครเข้าร่วม</span>
+          </Button>
         </div>
       </div>
     </div>

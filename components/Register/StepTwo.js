@@ -132,9 +132,9 @@ export default class StepTwo extends React.Component {
               <button className="btn btn-primary btn-lg w-50">
                 Submit
               </button>
-              <small className="form-text text-muted">
-                หากต้องการออกจากระบบกรุณากดปุ่ม <a href="#" onClick={this.handleLogout}>ออกจากระบบ</a> นี้
-              </small>
+              <p className="form-text text-muted">
+                หากน้องต้องการออกจากระบบกรุณากดปุ่ม <a href="#" onClick={this.handleLogout}>ออกจากระบบ</a> นี้
+              </p>
             </div>
           </Fieldset>
         </form>
