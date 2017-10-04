@@ -42,7 +42,21 @@ const Header = styled.h1`
   font-family: 'PWScratchedFont';
   font-size: 3.2em;
   margin-bottom: .5em;
-  padding-top: calc(30px + 5vh);
+  margin-bottom: 0;
+`
+
+const Subtitle = styled.p`
+  font-family: 'PWScratchedFont';
+  text-align: center;
+
+  span {
+    display: block;
+    font-size: 1.2em;
+
+    &.small {
+      font-size: .6em;
+    }
+  }
 `
 
 const Detail = styled.div`
@@ -86,6 +100,11 @@ class Main extends React.Component {
         <Loading active={this.props.loading} />
         <div className="container">
           <Header className="text-center">SIT CRAFT Camp</Header>
+          <Subtitle>
+            <span>14-21 October 2017</span>
+            <span className="small">School of Information Technology,</span>
+            <span className="small">King Mongkut's University of Technology Thonburi.</span>
+          </Subtitle>
           <Stepper section={currentStep} />
           <Detail>
             { currentStep === 1 && <StepOne /> }

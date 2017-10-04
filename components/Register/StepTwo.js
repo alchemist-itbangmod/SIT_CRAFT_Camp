@@ -133,7 +133,7 @@ export default class StepTwo extends React.Component {
                 Submit
               </button>
               <small className="form-text text-muted">
-                หากต้องการออกจากระบบกรุณากดปุ่ม <a href="#" onClick={this.handleLogout}>ออกจากระบบ</a> นี้
+                หากน้องต้องการออกจากระบบกรุณากดปุ่ม <a href="#" onClick={this.handleLogout}>ออกจากระบบ</a> นี้
               </small>
             </div>
           </Fieldset>
