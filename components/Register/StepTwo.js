@@ -1,6 +1,11 @@
 import React from 'react'
+import Router from 'next/router'
 import { connect } from 'react-redux'
 import styled, { css } from 'styled-components'
+
+import firebase from 'firebase'
+import clientCredentials from '../../credentials/client'
+import { haveRegistration } from '../../utils/firebase'
 
 import { actions as registerActions } from '../../ducks/register'
 
@@ -30,6 +35,29 @@ const Fieldset = styled.fieldset`
   { setField: registerActions.setField }
 )
 export default class StepTwo extends React.Component {
+  async componentDidMount () {
+    firebase.initializeApp(clientCredentials)
+    firebase.auth().onAuthStateChanged(async user => {
+      if (user) {
+        let registration = await haveRegistration(firebase, user)
+
+        if (registration !== null) {
+          Router.push(`/register?currentStep=${3}`)
+        }
+
+        const data = user.providerData[0]
+        this.props.setField('email', data.email)
+        this.props.setField('name', data.displayName)
+
+        return user.getToken()
+          .then((token) => {})
+          .then((res) => {})
+      } else {
+        Router.push(`/register?currentStep=${1}`)
+      }
+    })
+  }
+
   render() {
     const { props } = this
     const data = props.registerData

@@ -4,20 +4,10 @@ import firebase from 'firebase'
 import clientCredentials from '../../credentials/client'
 
 export default class StepOne extends React.Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      user: '',
-      value: '',
-      messages: ''
-    }
-  }
-
   componentDidMount () {
     firebase.initializeApp(clientCredentials)
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        // console.log(user)
         Router.push(`/register?currentStep=${2}`)
         return user.getToken()
           .then((token) => {})
