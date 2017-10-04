@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Router from 'next/router'
 import { connect } from 'react-redux'
 import { haveRegistration } from '../../utils/firebase'
@@ -41,7 +41,8 @@ const RegisterSection = styled(Section)`
   }
 
   .btn-outline-light:hover {
-    color: #aaa;
+    color: #777;
+    background-color: rgba(255,255,255,0.8);
   }
 `
 

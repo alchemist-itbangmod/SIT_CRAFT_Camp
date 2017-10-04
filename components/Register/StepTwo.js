@@ -2,7 +2,6 @@ import React from 'react'
 import Router from 'next/router'
 import { connect } from 'react-redux'
 import styled, { css } from 'styled-components'
-import instance from '../../libs/axios'
 
 import firebase from 'firebase'
 import clientCredentials from '../../credentials/client'
@@ -68,7 +67,8 @@ export default class StepTwo extends React.Component {
   handleRegister = async e => {
     e.preventDefault()
     console.log(this.props.registerData)
-    saveRegistration(firebase, this.state.user, this.props.registerData)
+    await saveRegistration(firebase, this.state.user, this.props.registerData)
+    Router.push(`/register?currentStep=${3}`)
   }
 
   render() {
@@ -120,13 +120,8 @@ export default class StepTwo extends React.Component {
           </div>
         </div>
         <hr />
-<<<<<<< HEAD
-        <form onSubmit={e => this.onSubmit(e)}>
-          <Fieldset>
-=======
         <form onSubmit={this.handleRegister}>
           <Fieldset disabled={data.team === ''}>
->>>>>>> 4bc690b99f27b2f1559150a606fc227ca916036a
             <Information />
             <hr />
             <Contact />

@@ -35,7 +35,7 @@ const Whatis = props => (
     <div className="container">
       <div className="row">
         <div className="col-sm-6">
-          <img src="/static/images/logo-sit-craft-camp.svg" className="img-fluid" alt="Logo" />
+          <img src="/static/images/logo-requirement.png" className="img-fluid" alt="Logo" />
         </div>
         <div className="col-sm-6">
           <Header>

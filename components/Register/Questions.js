@@ -23,7 +23,7 @@ export default class Interesting extends React.Component {
       case 'design':
         index = 1
         break
-      case 'infra':
+      case 'infrastructure':
         index = 2
         break
       case 'game':
@@ -37,7 +37,7 @@ export default class Interesting extends React.Component {
         <div className="col-12">
           <h3 className="text-center">Team Questions.</h3>
           <p className="text-center">
-            <small>คำถามในการวัดความเหมาะสมในการคัดเลือกให้เข้าร่วมทีม</small>
+            คำถามในการวัดความเหมาะสมในการคัดเลือกให้เข้าร่วมทีม
           </p>
         </div>
         <div className="col-12">

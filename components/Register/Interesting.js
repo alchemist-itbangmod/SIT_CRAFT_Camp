@@ -28,7 +28,6 @@ export default class Interesting extends React.Component {
           <Textarea
             field={`activities`}
             label={`กิจกรรมที่เคยเข้าร่วมหรือทำมาก่อน`}
-            placeholder={`---`}
             footer={`** มีผลต่อการคัดเลือกน้องเพื่อเข้าสู่ค่าย`}
             handleChange={props.setField}
             value={data.activities}
