@@ -4,12 +4,12 @@ import styled from 'styled-components'
 const Step = styled.ol`
   display: flex;
   width: 100%;
-  margin: 40px 0;
+  margin: 70px 0;
 
   li {
     color: #fff;
     flex: 1;
-    font-size: 14px;
+    font-size: 16px;
     padding-top: 15px;
     position: relative;
     text-align: center;
@@ -51,9 +51,9 @@ const Step = styled.ol`
 
 const Stepper = ({ section }) => (
   <Step>
-    <li className={(section === 1 || section === 2 || section === 3) && `completed`}>Register with Github</li>
-    <li className={(section === 2 || section === 3) && `completed`}>Fill your detail</li>
-    <li className={section === 3 && `completed`}>Finish!</li>
+    <li className={(section === 1 || section === 2 || section === 3) && `completed`}>ลงทะเบียนด้วย Github</li>
+    <li className={(section === 2 || section === 3) && `completed`}>กรอกข้อมูลส่วนตัว</li>
+    <li className={section === 3 && `completed`}>เสร็จสิ้น!</li>
   </Step>
 )
 

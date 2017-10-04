@@ -1,7 +1,12 @@
 import React from 'react'
+import Router from 'next/router'
 import { connect } from 'react-redux'
 import styled, { css } from 'styled-components'
 import instance from '../../libs/axios'
+
+import firebase from 'firebase'
+import clientCredentials from '../../credentials/client'
+import { haveRegistration, saveRegistration } from '../../utils/firebase'
 
 import { actions as registerActions } from '../../ducks/register'
 
@@ -31,6 +36,7 @@ const Fieldset = styled.fieldset`
   { setField: registerActions.setField }
 )
 export default class StepTwo extends React.Component {
+<<<<<<< HEAD
   onSubmit = async (e) => {
     e.preventDefault()
     let { props } = this
@@ -41,6 +47,41 @@ export default class StepTwo extends React.Component {
         console.log(resp)
         // return resp
       })
+=======
+  state = {
+    user: null
+  }
+  async componentDidMount () {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(clientCredentials)
+    }
+    firebase.auth().onAuthStateChanged(async user => {
+      if (user) {
+        let registration = await haveRegistration(firebase, user)
+        if (registration !== null) {
+          Router.push(`/register?currentStep=${3}`)
+        }
+
+        const data = user.providerData[0]
+        this.setState({ user })
+        this.props.setField('email', data.email)
+        this.props.setField('name', data.displayName)
+      } else {
+        Router.push(`/register?currentStep=${1}`)
+      }
+    })
+  }
+
+  handleLogout = async () => {
+    firebase.auth().signOut()
+    Router.push(`/register?currentStep=${1}`)
+  }
+
+  handleRegister = async e => {
+    e.preventDefault()
+    console.log(this.props.registerData)
+    saveRegistration(firebase, this.state.user, this.props.registerData)
+>>>>>>> 4bc690b99f27b2f1559150a606fc227ca916036a
   }
 
   render() {
@@ -53,7 +94,7 @@ export default class StepTwo extends React.Component {
           <div className="col-12">
             <h2 className="text-center">Define your Team</h2>
             <p className="text-center">
-              <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore sequi porro soluta.</small>
+              <small>เลือกทีมที่ต้องการสมัคร โดยน้องๆ สามารถเลือกสมัครได้เพียงแค่ 1 ทีมเท่านั้น</small>
             </p>
           </div>
         </div>
@@ -63,7 +104,7 @@ export default class StepTwo extends React.Component {
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'developer' && 'active'}`}
               onClick={e => props.setField('team', 'developer')}
             >
-              DEVELOPER
+              {`DEVELOPER`}
             </button>
           </div>
           <div className="col-3">
@@ -71,7 +112,7 @@ export default class StepTwo extends React.Component {
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'design' && 'active'}`}
               onClick={e => props.setField('team', 'design')}
             >
-              UX/UI DESIGN
+              {`UX/UI DESIGN`}
             </button>
           </div>
           <div className="col-3">
@@ -79,7 +120,7 @@ export default class StepTwo extends React.Component {
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'infrastructure' && 'active'}`}
               onClick={e => props.setField('team', 'infrastructure')}
             >
-              INFRASTRUCTURE
+              {`INFRASTRUCTURE`}
             </button>
           </div>
           <div className="col-3">
@@ -87,13 +128,18 @@ export default class StepTwo extends React.Component {
               className={`btn btn-block btn-lg btn-outline-light ${data.team === 'game' && 'active'}`}
               onClick={e => props.setField('team', 'game')}
             >
-              GAME
+              {`GAME`}
             </button>
           </div>
         </div>
         <hr />
+<<<<<<< HEAD
         <form onSubmit={e => this.onSubmit(e)}>
           <Fieldset>
+=======
+        <form onSubmit={this.handleRegister}>
+          <Fieldset disabled={data.team === ''}>
+>>>>>>> 4bc690b99f27b2f1559150a606fc227ca916036a
             <Information />
             <hr />
             <Contact />
@@ -102,10 +148,12 @@ export default class StepTwo extends React.Component {
             <hr />
             <Questions />
             <div className="text-center">
-              <small className="form-text text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small>
               <button className="btn btn-primary btn-lg w-50">
                 Submit
               </button>
+              <p className="form-text text-muted">
+                หากน้องต้องการออกจากระบบกรุณากดปุ่ม <a href="#" onClick={this.handleLogout}>ออกจากระบบ</a> นี้
+              </p>
             </div>
           </Fieldset>
         </form>

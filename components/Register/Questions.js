@@ -20,7 +20,7 @@ export default class Interesting extends React.Component {
         <div className="col-12">
           <h3 className="text-center">Team Questions.</h3>
           <p className="text-center">
-            <small>Lorem ipsum dolor sit amet, consectetur.</small>
+            <small>คำถามในการวัดความเหมาะสมในการคัดเลือกให้เข้าร่วมทีม</small>
           </p>
         </div>
         <div className="col-12">

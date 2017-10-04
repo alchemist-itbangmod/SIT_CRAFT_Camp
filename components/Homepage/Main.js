@@ -5,6 +5,8 @@ import { injectGlobal } from 'styled-components'
 import Hero from './Hero'
 import Whatis from './Whatis'
 import Team from './Team'
+import Requirement from './Requirement'
+import Agenda from './Agenda'
 import Slogan from './Slogan'
 import Contact from './Contact'
 
@@ -25,6 +27,7 @@ injectGlobal`
     -webkit-font-smoothing: antialiased;
     margin: 0 !important;
     padding: 0 !important;
+    color: #333;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -39,6 +42,8 @@ const IndexPage = props => (
     <Hero />
     <Whatis />
     <Team />
+    <Requirement />
+    <Agenda />
     <Slogan />
     <Contact />
   </div>

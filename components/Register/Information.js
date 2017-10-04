@@ -21,7 +21,7 @@ export default class Information extends React.Component {
         <div className="col-12">
           <h2 className="text-center">Fill your Information</h2>
           <p className="text-center">
-            <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio tempore sequi porro soluta.</small>
+            ข้อมูลส่วนตัวของน้องๆ โดยทางคณะจะไม่เปิดเผยข้อมูลส่วนตัวของน้องๆ ให้กับผู้อื่น
           </p>
         </div>
         <div className="row">
@@ -31,7 +31,7 @@ export default class Information extends React.Component {
               field={`email`}
               label={`Email Address`}
               placeholder={`Enter email`}
-              footer={`We'll never share your email with anyone else.`}
+              footer={`** ใช้อีเมลที่ผูกกับ GitHub Account เพื่อทำกิจกรรมภายในค่าย`}
               handleChange={props.setField}
               value={data.email}
             />
@@ -43,7 +43,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`name`}
               label={`Name`}
-              placeholder={`Enter your name`}
               handleChange={props.setField}
               value={data.name}
             />
@@ -53,7 +52,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`surname`}
               label={`Surname`}
-              placeholder={`Enter your surname`}
               handleChange={props.setField}
               value={data.surname}
             />
@@ -65,17 +63,16 @@ export default class Information extends React.Component {
               type={'text'}
               field={`nickname`}
               label={`Nickname`}
-              placeholder={`Enter your nickname`}
               handleChange={props.setField}
               value={data.nickname}
             />
           </div>
           <div className="col-6">
             <Input
-              type={'text'}
+              type={'number'}
               field={`citizenID`}
               label={`Citizen ID`}
-              placeholder={`Enter your Citizen ID`}
+              placeholder={`1234567890123`}
               handleChange={props.setField}
               value={data.citizenID}
             />
@@ -85,7 +82,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`religion`}
               label={`ศาสนา`}
-              placeholder={`---`}
               handleChange={props.setField}
               value={data.religion}
               dropdown={dropdown.religion}
@@ -105,6 +101,7 @@ export default class Information extends React.Component {
                     autoComplete="off"
                     onChange={e => props.setField('gender', 'M')}
                     checked={data.gender === 'M'}
+                    required
                   /> ชาย
                 </label>
                 <label className={`btn btn-outline-light w-50 ${data.gender === 'W' && 'active'}`}>
@@ -138,7 +135,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`school`}
               label={`โรงเรียน/สถานศึกษา`}
-              placeholder={`---`}
               handleChange={props.setField}
               value={data.school}
             />
@@ -148,7 +144,6 @@ export default class Information extends React.Component {
               type={'text'}
               field={`grade`}
               label={`ระดับชั้น`}
-              placeholder={`---`}
               handleChange={props.setField}
               value={data.grade}
               dropdown={dropdown.academicYear}
@@ -156,10 +151,10 @@ export default class Information extends React.Component {
           </div>
           <div className="col-3">
             <Input
-              type={'text'}
+              type={'number'}
               field={`GPAX`}
               label={`GPAX`}
-              placeholder={`---`}
+              placeholder={`2.92`}
               handleChange={props.setField}
               value={data.GPAX}
             />

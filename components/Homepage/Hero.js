@@ -37,8 +37,8 @@ class Hero extends React.PureComponent {
               <Header>SIT CRAFT Camp</Header>
               <Subtitle>
                 <span>14-21 October 2017</span>
-                <span className="small">School of Information Technology</span>
-                <span className="small">King Mongkut's University of Technology Thonburi</span>
+                <span className="small">School of Information Technology,</span>
+                <span className="small">King Mongkut's University of Technology Thonburi.</span>
               </Subtitle>
             </div>
           </div>

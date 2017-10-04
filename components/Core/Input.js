@@ -10,6 +10,7 @@ export const Input = ({ field, label, type, placeholder, footer, handleChange, v
       placeholder={placeholder}
       onChange={e => handleChange(field, e.target.value)}
       value={value}
+      required
     />
     { footer && <small className="form-text text-muted">{footer}</small>}
   </div>
@@ -24,6 +25,7 @@ export const Textarea = ({ field, label, placeholder, footer, handleChange, valu
       placeholder={placeholder}
       onChange={e => handleChange(field, e.target.value)}
       value={value}
+      required
     />
     { footer && <small className="form-text text-muted">{footer}</small>}
   </div>
@@ -38,6 +40,7 @@ export const Select = ({ field, label, footer, handleChange, value, dropdown }) 
       value={value}
       onChange={e => handleChange(field, e.target.value)}
       onBlur={e => handleChange(field, e.target.value)}
+      required
     >
       <option value="" disabled>โปรดเลือก</option>
       { dropdown.map(item => {
