@@ -88,6 +88,7 @@ const Detail = styled.div`
 )
 class Main extends React.Component {
   componentDidMount() {
+    this.props.isLoading()
     if (!firebase.apps.length) {
       firebase.initializeApp(clientCredentials)
     }
