@@ -4,11 +4,17 @@ import styled from 'styled-components'
 const Step = styled.ol`
   display: flex;
   width: 100%;
+  margin: 70px 0;
+  padding: 0;
+
+  @media(max-width: 768px) {
+    margin: 40px 0;
+  }
 
   li {
     color: #fff;
     flex: 1;
-    font-size: 14px;
+    font-size: 16px;
     padding-top: 15px;
     position: relative;
     text-align: center;
@@ -16,7 +22,7 @@ const Step = styled.ol`
 
     &::after {
       border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.6);
+      border: 2px solid rgba(255,255,255,0.4);
       content: "";
       height: 15px;
       left: calc(50% - 7.5px);
@@ -26,8 +32,17 @@ const Step = styled.ol`
       z-index: 1;
     }
 
+    &.completed::after {
+      background-color: #fff;
+      border-color: #fff;
+    }
+
+    &.completed:not(:first-child)::before {
+      background-color: #fff;
+    }
+
     &:not(:first-child)::before {
-      background-color: rgba(255,255,255,0.6);
+      background-color: rgba(255,255,255,0.4);
       border-radius: 2px;
       content: "";
       height: 2px;
@@ -39,14 +54,12 @@ const Step = styled.ol`
   }
 `
 
-export default class Stepper extends React.Component {
-  render() {
-    return (
-      <Step>
-        <li>Register with Github</li>
-        <li>Fill your detail</li>
-        <li>Finish!</li>
-      </Step>
-    )
-  }
-}
+const Stepper = ({ section }) => (
+  <Step>
+    <li className={(section === 1 || section === 2 || section === 3) && `completed`}>ลงทะเบียนด้วย Github</li>
+    <li className={(section === 2 || section === 3) && `completed`}>กรอกข้อมูลส่วนตัว</li>
+    <li className={section === 3 && `completed`}>เสร็จสิ้น!</li>
+  </Step>
+)
+
+export default Stepper

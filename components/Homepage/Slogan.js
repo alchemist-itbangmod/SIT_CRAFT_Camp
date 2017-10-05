@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import colors from '../Core/colors'
+import { lighten } from 'polished'
 import { Section } from '../Core/Layout'
 
 const SloganSection = styled(Section)`
   background: steelblue;
+  background: radial-gradient(circle, ${colors.blue} 0, ${lighten(0.1, colors.blue)} 125%),url('/static/images/gallery/1.jpg') center/cover no-repeat;
 `
 
 const Header = styled.h2`
@@ -18,6 +20,10 @@ const Header = styled.h2`
     &:last-child {
       opacity: 0.5;
     }
+  }
+
+  @media(max-width: 768px) {
+    font-size: 2.8em;
   }
 `
 

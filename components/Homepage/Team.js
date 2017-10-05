@@ -1,14 +1,96 @@
 import React from 'react'
 import styled from 'styled-components'
+import Router from 'next/router'
+
+import colors from '../Core/colors'
+import { darken, opacify } from 'polished'
 
 import { Section } from '../Core/Layout'
-
-const Header = styled.h2`
-  font-size: 3.2em;
-`
+import contents from './content.json'
 
 const TeamSection = styled(Section)`
   background: #fafafa;
+
+  .promo {
+    font-size: 24px;
+    padding-top: 16px;
+
+    @media(max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+`
+
+const Header = styled.h2`
+  font-size: 3.8em;
+  margin: 20px;
+
+  &.small {
+    font-size: 2.2em;
+    border-top: 1px dashed #ccc;
+    padding: 20px;
+  }
+`
+
+const Clan = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+  transition: all .4s;
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  h3 {
+    font-size: 22px;
+    color: ${props => darken(0.15, colors.team[props.clan])};
+
+    @media(max-width: 768px) {
+      font-size: 28px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+    min-height: 130px;
+
+    &.requirement {
+      font-size: 18px;
+      min-height: 0;
+      color: ${props => darken(0.15, colors.team[props.clan])};
+    }
+
+    @media(max-width: 768px) {
+      min-height: 100px;
+    }
+  }
+`
+
+const Button = styled.button`
+  color: #333;
+  background-color: white;
+  border-color: #ccc;
+  letter-spacing: .3px;
+  cursor: pointer;
+  padding: 10px 38px;
+
+  span {
+    display: inline-block;
+    font-size: 32px;
+    padding-top: 7px;
+  }
+`
+
+const LogoTeam = styled.div`
+  padding: 20px;
+  min-height: 200px;
+
+  img {
+    margin: 0 auto;
+    display: block;
+  }
 `
 
 const Team = props => (
@@ -16,35 +98,41 @@ const Team = props => (
     <div className="container">
       <div className="row">
         <div className="col-12">
-          <Header className="text-center">Team.</Header>
+          <Header className="text-center">Clan.</Header>
           <p className="text-center">
-            <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta pariatur architecto doloremque iusto molestias dolorem cumque accusamus, temporibus. Obcaecati sunt rem facilis est quas ea sint quam fugit fuga, aut.</small>
+            <small />
           </p>
         </div>
       </div>
       <div className="row">
         {
-          [...Array(4)].map(i => (
-            <div className="col-12 col-md-3">
-              <div className="card text-center" style={{ width: '100%', marginBottom: '20px' }}>
+          contents.clans.map((clan, key) => (
+            <div key={clan.name} className="col-12 col-md-3">
+              <Clan className="card text-center" clan={key}>
                 <div className="card-body">
-                  <h4 className="card-title">Card title</h4>
-                  <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                  <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h3 className="card-title">{ clan.name }</h3>
+                  <LogoTeam>
+                    <img src={`/static/images/team/${key}.png`} className="img-fluid" alt="" />
+                  </LogoTeam>
+                  <p className="card-text">{ clan.description }</p>
+                  <p className="mt-2 requirement">``{ clan.requirement }``</p>
                 </div>
-              </div>
+              </Clan>
             </div>
           ))
         }
       </div>
       <div className="row">
         <div className="col-12 text-center">
-          <button className="btn btn-lg btn-secondary">
-            JOIN THE CLAN.
-          </button>
-          <p className="text-center">
-            <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</small>
+          <p className="promo text-center">
+            ถ้าพร้อมที่จะร่วมเป็นส่วนหนึ่งกับเรา สมัครเลย!
           </p>
+          <Button
+            className="btn btn-lg btn-secondary"
+            onClick={() => Router.push('/register')}
+          >
+            <span>สมัครเข้าร่วม</span>
+          </Button>
         </div>
       </div>
     </div>

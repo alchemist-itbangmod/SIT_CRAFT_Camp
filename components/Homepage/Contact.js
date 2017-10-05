@@ -12,18 +12,30 @@ const ContactSection = styled.div`
   hr {
     border-top: 1px solid rgba(255,255,255,.1);
   }
+
+  a  {
+    color: white;
+    font-weight: bold;
+  }
 `
 
 const Manu = styled.ul`
   list-style: none;
   display: inline-block;
+  padding: 0;
 
   li {
     display: inline-block;
     &:not(:first-child):before {
       content: "/";
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+
+  @media(max-width: 768px) {
+    li {
+      font-size: 80%;
     }
   }
 `
@@ -35,14 +47,17 @@ const Contact = props => (
           <h3>SIT CRAFT Camp.</h3>
           <hr />
           <div className="row">
-            <div className="col-3">
-              <small>{`© 2017 Alchemist`}</small>
+            <div className="col-12 col-sm-6 text-center text-sm-left">
+              <i className="fa fa-code" />
+              {` with `}
+              <i className="fa fa-heart" />
+              {` by `}
+              <a href="https://alchemist.itbangmod.in.th">Alchemist</a>
             </div>
-            <div className="col-9 text-right">
+            <div className="col-12 col-sm-6 text-center text-sm-right">
               <Manu>
-                <li><small>WHAT IS</small></li>
-                <li><small>TEAM</small></li>
-                <li><small>SLOGAN</small></li>
+                <li>facebook: <a href="https://www.facebook.com/SIT.Family/">@SIT.Family</a></li>
+                <li>โทรศัพท์: <a href="tel:024709887">02-4709887</a> (พี่รุ่ง)</li>
               </Manu>
             </div>
           </div>
