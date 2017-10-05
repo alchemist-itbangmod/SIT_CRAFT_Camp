@@ -36,17 +36,25 @@ injectGlobal`
   }
 `
 
-const IndexPage = props => (
-  <div>
-    {/* <Navbar /> */}
-    <Hero />
-    <Whatis />
-    <Team />
-    <Requirement />
-    {/* <Agenda /> */}
-    <Slogan />
-    <Contact />
-  </div>
-)
+const IndexPage = props => {
+  /* eslint-disable */
+  console.log("%c SIT CRAFT Camp. ", "background: #ddd; color: #336699; font-size: 26px; font-style: italic; font-weight:700")
+  console.log("if you inspect our code. you can see our repository in Github if you come in SIT CRAFT Camp. Join us ! https://craft.sitchallenge.com/register")
+  console.log("%c## Powered by Alchemist @SIT, KMUTT ##", "font-style: italic")
+  /* eslint-enable */
+
+  return (
+    <div>
+      {/* <Navbar /> */}
+      <Hero />
+      <Whatis />
+      <Team />
+      <Requirement />
+      {/* <Agenda /> */}
+      <Slogan />
+      <Contact />
+    </div>
+  )
+}
 
 export default IndexPage

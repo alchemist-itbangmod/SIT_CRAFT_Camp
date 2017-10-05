@@ -5,6 +5,11 @@ const Step = styled.ol`
   display: flex;
   width: 100%;
   margin: 70px 0;
+  padding: 0;
+
+  @media(max-width: 768px) {
+    margin: 40px 0;
+  }
 
   li {
     color: #fff;

@@ -51,6 +51,10 @@ const Header = styled.h1`
   font-size: 3.2em;
   margin-bottom: .5em;
   margin-bottom: 0;
+
+  @media(max-width: 768px) {
+    font-size: 2em;
+  }
 `
 
 const Subtitle = styled.p`
@@ -69,6 +73,10 @@ const Subtitle = styled.p`
 
 const Detail = styled.div`
   margin: 40px;
+
+  @media(max-width: 768px) {
+    margin: 15px;
+  }
 `
 
 @connect(
@@ -80,7 +88,6 @@ const Detail = styled.div`
 )
 class Main extends React.Component {
   componentDidMount() {
-    console.log(this.props.loading)
     if (!firebase.apps.length) {
       firebase.initializeApp(clientCredentials)
     }
@@ -102,6 +109,12 @@ class Main extends React.Component {
   }
 
   render() {
+    /* eslint-disable */
+    console.log("%c SIT CRAFT Camp. ", "background: #ddd; color: #336699; font-size: 26px; font-style: italic; font-weight:700")
+    console.log("if you inspect our code. you can see our repository in Github if you come in SIT CRAFT Camp. Join us ! https://craft.sitchallenge.com/register")
+    console.log("%c## Powered by Alchemist @SIT, KMUTT ##", "font-style: italic")
+    /* eslint-enable */
+
     const currentStep = +this.props.url.query.currentStep
 
     return (

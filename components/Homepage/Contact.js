@@ -22,6 +22,7 @@ const ContactSection = styled.div`
 const Manu = styled.ul`
   list-style: none;
   display: inline-block;
+  padding: 0;
 
   li {
     display: inline-block;
@@ -29,6 +30,12 @@ const Manu = styled.ul`
       content: "/";
       padding-left: 8px;
       padding-right: 8px;
+    }
+  }
+
+  @media(max-width: 768px) {
+    li {
+      font-size: 80%;
     }
   }
 `
@@ -40,14 +47,14 @@ const Contact = props => (
           <h3>SIT CRAFT Camp.</h3>
           <hr />
           <div className="row">
-            <div className="col-3">
-              <i className="fa fa-code"></i>
+            <div className="col-12 col-sm-6 text-center text-sm-left">
+              <i className="fa fa-code" />
               {` with `}
-              <i className="fa fa-heart"></i>
+              <i className="fa fa-heart" />
               {` by `}
               <a href="https://alchemist.itbangmod.in.th">Alchemist</a>
             </div>
-            <div className="col-9 text-right">
+            <div className="col-12 col-sm-6 text-center text-sm-right">
               <Manu>
                 <li>facebook: <a href="https://www.facebook.com/SIT.Family/">@SIT.Family</a></li>
                 <li>โทรศัพท์: <a href="tel:024709887">02-4709887</a> (พี่รุ่ง)</li>

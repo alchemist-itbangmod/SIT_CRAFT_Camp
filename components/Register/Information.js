@@ -58,7 +58,7 @@ export default class Information extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-3">
+          <div className="col-4 col-md-3">
             <Input
               type={'text'}
               field={`nickname`}
@@ -67,7 +67,7 @@ export default class Information extends React.Component {
               value={data.nickname}
             />
           </div>
-          <div className="col-6">
+          <div className="col-8 col-md-6">
             <Input
               type={'number'}
               field={`citizenID`}
@@ -77,7 +77,7 @@ export default class Information extends React.Component {
               value={data.citizenID}
             />
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <Select
               type={'text'}
               field={`religion`}
@@ -87,9 +87,7 @@ export default class Information extends React.Component {
               dropdown={dropdown.religion}
             />
           </div>
-        </div>
-        <div className="row">
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <div className="form-group">
               <label htmlFor="InputEmail">เพศ:</label>
               <div className="btn-group d-block" data-toggle="buttons">
@@ -117,7 +115,7 @@ export default class Information extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-2">
+          <div className="col-6 col-md-2">
             <Select
               type={'text'}
               field={`blood`}
@@ -130,7 +128,7 @@ export default class Information extends React.Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <Input
               type={'text'}
               field={`school`}
@@ -139,7 +137,7 @@ export default class Information extends React.Component {
               value={data.school}
             />
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <Select
               type={'text'}
               field={`grade`}
@@ -149,7 +147,7 @@ export default class Information extends React.Component {
               dropdown={dropdown.academicYear}
             />
           </div>
-          <div className="col-3">
+          <div className="col-6 col-md-3">
             <Input
               type={'number'}
               field={`GPAX`}

@@ -12,6 +12,10 @@ const Header = styled.h2`
     font-size: 70%;
     opacity: 0.9;
   }
+
+  @media(max-width: 768px) {
+    font-size: 2.6em;
+  }
 `
 
 const Info = styled.div`
@@ -34,10 +38,10 @@ const Whatis = props => (
   <Section>
     <div className="container">
       <div className="row">
-        <div className="col-sm-6">
+        <div className="col-sm-6 order-2 order-sm-1">
           <img src="/static/images/logo-requirement.png" className="img-fluid" alt="Logo" />
         </div>
-        <div className="col-sm-6">
+        <div className="col-sm-6 order-1 order-sm-2">
           <Header>
             <small>Craftsman</small>
             <br />
