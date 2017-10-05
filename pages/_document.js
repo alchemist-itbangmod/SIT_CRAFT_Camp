@@ -1,6 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import seo from '../seo.json';
+import seo from '../seo.json'
 
 const config = {
   baseURL: 'https://craft.sitchallenge.com'
@@ -64,6 +64,20 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+
+          {/* Google Analytics */}
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-82920412-4" />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'UA-82920412-4');
+              `
+            }}
+          />
         </body>
       </html>
     )
