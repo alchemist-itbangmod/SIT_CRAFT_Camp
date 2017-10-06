@@ -17,6 +17,10 @@ const AgendaLeft = styled.div.attrs({
 
 const AgendaContent = styled.div`
   font-size: 24px;
+
+  @media(max-width: 768px) {
+    font-size: 22px;
+  }
 `
 
 const Header = styled.h2`
