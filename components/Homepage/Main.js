@@ -50,7 +50,7 @@ const IndexPage = props => {
       <Whatis />
       <Team />
       <Requirement />
-      {/* <Agenda /> */}
+      <Agenda />
       <Slogan />
       <Contact />
     </div>

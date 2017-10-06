@@ -16,7 +16,7 @@ const AgendaLeft = styled.div.attrs({
 `
 
 const AgendaContent = styled.div`
-  font-size: 1.2em;
+  font-size: 24px;
 `
 
 const Header = styled.h2`
@@ -65,7 +65,7 @@ const Agenda = props => (
           </div>
         </AgendaLeft>
         <div className="col-12 col-md-6">
-          <img src="/static/images/logo-sit-craft-camp.svg" className="img-fluid" alt="Logo" />
+          <img src="/static/images/agenda.png" className="img-fluid" alt="Logo" />
         </div>
       </div>
     </div>
