@@ -60,7 +60,7 @@ export default class Interesting extends React.Component {
               <label className={`btn btn-outline-light w-50 ${data.haveLaptop === 'YES' && 'active'}`}>
                 <input
                   type="radio"
-                  name="dormitory"
+                  name="laptop"
                   id="need"
                   autoComplete="off"
                   onChange={e => props.setField('haveLaptop', 'YES')}
@@ -71,7 +71,7 @@ export default class Interesting extends React.Component {
               <label className={`btn btn-outline-light w-50 ${data.haveLaptop === 'NO' && 'active'}`}>
                 <input
                   type="radio"
-                  name="dormitory"
+                  name="laptop"
                   id="no-need"
                   autoComplete="off"
                   onChange={e => props.setField('haveLaptop', 'NO')}

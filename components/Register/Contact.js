@@ -74,11 +74,13 @@ export default class Contact extends React.Component {
           </div>
           <div className="col-12 col-md-5">
             <Input
-              type={'text'}
+              type={'tel'}
               field={`telno`}
               label={`เบอร์โทรศัพท์`}
               placeholder={`051-234-5678`}
               handleChange={props.setField}
+              pattern={`[0-9]{10}`}
+              title={`กรุณากรอกตัวเลข 0-9 ให้ครบ 10 หลัก`}
               value={data.telno}
             />
           </div>
