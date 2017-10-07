@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Input = ({ field, label, type, placeholder, footer, handleChange, value }) => (
+export const Input = ({ field, label, type, placeholder, footer, handleChange, value, pattern, title }) => (
   <div className="form-group">
     <label htmlFor={`input-${field}`}>{ label }:</label>
     <input
@@ -10,6 +10,8 @@ export const Input = ({ field, label, type, placeholder, footer, handleChange, v
       placeholder={placeholder}
       onChange={e => handleChange(field, e.target.value)}
       value={value}
+      pattern={pattern}
+      title={title}
       required
     />
     { footer && <small className="form-text text-muted">{footer}</small>}
