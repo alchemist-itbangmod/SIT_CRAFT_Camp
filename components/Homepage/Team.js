@@ -122,19 +122,6 @@ const Team = props => (
           ))
         }
       </div>
-      <div className="row">
-        <div className="col-12 text-center">
-          <p className="promo text-center">
-            ถ้าพร้อมที่จะร่วมเป็นส่วนหนึ่งกับเรา สมัครเลย!
-          </p>
-          <Button
-            className="btn btn-lg btn-secondary"
-            onClick={() => Router.push('/register')}
-          >
-            <span>สมัครเข้าร่วม</span>
-          </Button>
-        </div>
-      </div>
     </div>
   </TeamSection>
 )
