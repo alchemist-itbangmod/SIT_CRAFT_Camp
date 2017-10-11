@@ -92,10 +92,11 @@ const Announce = props => (
           </p>
           <p className="promo text-center">
             ประกาศรายชื่อน้อง ๆ ผู้มีสิทธิ์เข้าร่วมค่าย SIT CRAFT Camp <br />
-สำหรับน้องๆ ที่ได้รับสิทธิ์ในการเข้าร่วมค่าย กรุณานำใบขออนุญาตผู้ปกครองที่ทำการเซ็นอนุญาตเรียบร้อยแล้วมาส่ง <br />
-ณ วันลงทะเบียน <b>และทางคณะจะดำเนินการติดต่อน้อง ๆ ผ่านทางอีเมลที่แจ้งไว้</b>
+สำหรับน้องๆ ที่ได้รับสิทธิ์ในการเข้าร่วมค่าย <br />
+<b>กรุณานำใบขออนุญาตผู้ปกครองที่ทำการเซ็นอนุญาตเรียบร้อยแล้วมาส่ง ณ วันลงทะเบียน </b><br />
+และทางคณะจะดำเนินการติดต่อน้อง ๆ ผ่านทางอีเมลที่แจ้งไว้
           </p>
-          <a href='/static/docs/Announcement-SIT-CRAFT-Camp.pdf' target='_blank'>
+          <a href='/static/documents/Announcement-SIT-CRAFT-Camp.pdf' target='_blank'>
             <Button
               className="btn btn-lg btn-default"
             >
@@ -104,7 +105,7 @@ const Announce = props => (
           </a>
           <br />
           <br />
-          <a href='/static/docs/Approve-SIT-CRAFT-Camp.pdf' target='_blank'>
+          <a href='/static/documents/Approve-SIT-CRAFT-Camp.pdf' target='_blank'>
             <Button
               className="btn btn-secondary"
             >
