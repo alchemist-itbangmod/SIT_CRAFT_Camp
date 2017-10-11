@@ -58,13 +58,13 @@ export default class StepOne extends React.Component {
     }
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        Router.push(`/register?currentStep=${2}`)
+        //Router.push(`/register?currentStep=${2}`)
       }
     })
   }
 
   handleLogin = () => {
-    firebase.auth().signInWithPopup(new firebase.auth.GithubAuthProvider())
+    //firebase.auth().signInWithPopup(new firebase.auth.GithubAuthProvider())
   }
 
   render() {
@@ -73,16 +73,16 @@ export default class StepOne extends React.Component {
         <Header>{`Registration`}</Header>
         <Detail>"SIT CRAFT Camp" ค่ายที่จะทำให้น้อง ๆ ชั้นมัธยมศึกษาปีที่ 5 - 6 ได้เรียนรู้กระบวนการดี ๆ ในการพัฒนาซอฟแวร์ <br />"SIT CRAFT Camp"  เป็นค่ายในรูปแบบ ไป - กลับ (ไม่ค้างคืน) <u>เปิดรับสมัครตั้งแต่วันนี้ - 10 ตุลาคม 2560</u></Detail>
         <Detail className="small"><u><b>{`หมายเหตุ`}</b></u> สมัครฟรี ไม่มีค่าใช้จ่าย ยกเว้น หากน้อง ๆ คนไหน ไม่สะดวกในการเดินทางไป-กลับ ทางคณะฯ จะจัดหาพอพักของมหาวิทยาลัยให้ แต่ต้องเสียค่าใช้จ่ายเอง</Detail>
-
         <div className="signup">
           <Button
-            className="btn btn-lg btn-secondary"
-            onClick={this.handleLogin}
+            className="btn btn-lg btn-secondary disabled"
+            disabled="" 
           >
             <i className="fa fa-github" />
             <span>{`Register with GitHub`}</span>
           </Button>
         </div>
+        <Detail><br />ขณะนี้หมดเขตรับสมัครแล้วครับ</Detail>
       </div>
     )
   }
