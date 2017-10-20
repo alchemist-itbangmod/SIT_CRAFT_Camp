@@ -9,6 +9,7 @@ import Requirement from './Requirement'
 import Agenda from './Agenda'
 import Slogan from './Slogan'
 import Contact from './Contact'
+import Announce from './Announce'
 
 injectGlobal`
   @font-face {
@@ -47,6 +48,7 @@ const IndexPage = props => {
     <div>
       {/* <Navbar /> */}
       <Hero />
+      <Announce />
       <Whatis />
       <Team />
       <Requirement />
