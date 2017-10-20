@@ -125,13 +125,13 @@ const Team = props => (
       <div className="row">
         <div className="col-12 text-center">
           <p className="promo text-center">
-            ถ้าพร้อมที่จะร่วมเป็นส่วนหนึ่งกับเรา สมัครเลย!
+            ยินดีต้อนรับน้องๆ ทุกคนเข้าสู่
           </p>
           <Button
-            className="btn btn-lg btn-secondary"
+            className="btn btn-lg btn-primary"
             onClick={() => Router.push('/register')}
           >
-            <span>สมัครเข้าร่วม</span>
+            <span>ประกาศผลการคัดเลือก</span>
           </Button>
         </div>
       </div>
