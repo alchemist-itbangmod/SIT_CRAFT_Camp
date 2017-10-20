@@ -122,6 +122,19 @@ const Team = props => (
           ))
         }
       </div>
+      <div className="row">
+        <div className="col-12 text-center">
+          <p className="promo text-center">
+            ยินดีต้อนรับน้องๆ ทุกคนเข้าสู่
+          </p>
+          <Button
+            className="btn btn-lg btn-primary"
+            onClick={() => Router.push('/register')}
+          >
+            <span>ประกาศผลการคัดเลือก</span>
+          </Button>
+        </div>
+      </div>
     </div>
   </TeamSection>
 )
